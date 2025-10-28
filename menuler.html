@@ -5,6 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menüler | Ankalia Davet Salonu</title>
   <style>
+    /* === Sabit Sosyal Medya Butonları === */
+.social-buttons {
+  position: fixed;
+  bottom: 70px;             /* biraz yukarı aldık */
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 9999;
+}
+
+.social-buttons a {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #c6a14b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, background 0.3s ease;
+}
+
+.social-buttons a:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: #b48c3b;
+}
+
+.social-buttons img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+/* Mobilde biraz küçült */
+@media (max-width: 600px) {
+  .social-buttons {
+    bottom: 20px;
+    right: 15px;
+  }
+  .social-buttons a {
+    width: 48px;
+    height: 48px;
+  }
+  .social-buttons img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
  /* === İLETİŞİM SAYFASI - Hero Görsel Ayarı === */
 .hero {
   position: relative;
@@ -162,14 +212,15 @@
     window.addEventListener('scroll',()=> header.classList.toggle('scrolled', window.scrollY>30));
     document.getElementById('mobileMenu').addEventListener('click',()=>document.getElementById('navbar').classList.toggle('active'));
   </script>
-    <!-- Sabit WhatsApp ve Instagram butonları -->
+<!-- Sabit WhatsApp ve Instagram butonları -->
 <div class="social-buttons">
   <a href="https://wa.me/905423205536" class="whatsapp" target="_blank" title="WhatsApp">
-    <img src="images/whatsapp-icon.svg" alt="WhatsApp">
+    <img src="images/whatsapp.png" alt="WhatsApp">
   </a>
   <a href="https://www.instagram.com/ankalia.davetevi" class="instagram" target="_blank" title="Instagram">
-    <img src="images/instagram-icon.svg" alt="Instagram">
+    <img src="images/instagram.png" alt="Instagram">
   </a>
 </div>
+
 </body>
 </html>
