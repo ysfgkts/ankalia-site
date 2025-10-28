@@ -5,34 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>İletişim | Ankalia Davet Salonu</title>
   <style>
-   /* ---- İLETİŞİM SAYFASI HERO GÖRSEL DÜZENİ ---- */
-.hero {
-  background-size: contain !important;   /* resmi kırpma, tamamını göster */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-color: #000 !important;     /* kenarlarda estetik dolgu */
-  height: 80vh;                          /* ekranın %80 yüksekliğinde sabit */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  /* === Masaüstü tarayıcılar için dikey görsel düzeni === */
+@media (min-width: 1025px) {
+  .hero {
+    background-size: contain !important; /* Dikey fotoğrafı kırpma */
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-color: #000 !important; /* yanlarda estetik kenarlık */
+    height: 90vh !important; /* ekranın %90’ını kaplasın */
+  }
 }
 
-/* Başlık karanlıkta da okunabilsin diye */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25);
-  z-index: 1;
-}
-.hero h1 {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-}
 
     :root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
     *{box-sizing:border-box} body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
