@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hizmetler | Ankalia Davet Salonu</title>
+  <style>
+    body{margin:0;font-family:'Poppins',sans-serif;background:#fef8f3;color:#333;animation:fadeIn 1.2s ease-in-out;}
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    header{background:#fff8ef;border-bottom:2px solid #c6a14b;position:sticky;top:0;z-index:100;}
+    .container{width:min(1200px,90%);margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 0;}
+    .logo{font-family:'Playfair Display',serif;font-size:24px;color:#c6a14b;font-weight:700;text-decoration:none;}
+    nav a{text-decoration:none;color:#333;margin:0 14px;font-weight:500;}
+    nav a:hover{color:#c6a14b;}
+    .hero{height:60vh;background:url('images/ankalia-service.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;position:relative;}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4);}
+    .hero h1{position:relative;z-index:1;color:#fff;font-family:'Playfair Display',serif;font-size:42px;}
+    section{padding:80px 0;text-align:center;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;width:min(1100px,90%);margin:auto;}
+    .card{background:#fff;border:1px solid #f2e9d8;border-radius:14px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);transition:transform .3s;}
+    .card:hover{transform:translateY(-6px);}
+    .card h3{color:#c6a14b;font-family:'Playfair Display',serif;font-size:22px;margin-bottom:10px;}
+    .card p{color:#555;line-height:1.6;}
+    .btn{display:inline-block;margin-top:24px;background:#c6a14b;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;transition:background .3s;}
+    .btn:hover{background:#b48c3b;}
+    footer{background:#fff8ef;padding:20px 0;text-align:center;border-top:2px solid #c6a14b;color:#6e5e41;font-size:14px;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Ankalia Davet Salonu</a>
+      <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="menuler.html">Menüler</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>Hizmetlerimiz</h1>
+  </div>
+
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h3>Düğün & Nişan</h3>
+        <p>Şık dekorasyon, gelin yolu, sahne, ışık sistemleri, canlı müzik ve profesyonel organizasyon hizmeti.</p>
+      </div>
+      <div class="card">
+        <h3>Kına & Söz</h3>
+        <p>Kına tahtı, konsept süsleme, kına ekibi, dans gösterileri ve özel sunumlarla unutulmaz bir gece.</p>
+      </div>
+      <div class="card">
+        <h3>Kurumsal Organizasyonlar</h3>
+        <p>Firma lansmanları, bayi toplantıları, gala yemekleri ve kurumsal etkinlikler için profesyonel ortam.</p>
+      </div>
+      <div class="card">
+        <h3>After Party</h3>
+        <p>DJ performansları, ışık gösterileri ve özel bar konseptiyle eğlence dolu bir gece sizi bekliyor.</p>
+      </div>
+      <div class="card">
+        <h3>Kahvaltı & Brunch</h3>
+        <p>Güne keyifli bir başlangıç için açık büfe veya serpme kahvaltı seçenekleriyle hizmetinizdeyiz.</p>
+      </div>
+    </div>
+    <a href="menuler.html" class="btn">Menülerimizi Görün</a>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
