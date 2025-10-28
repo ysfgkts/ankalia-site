@@ -5,110 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>İletişim | Ankalia Davet Salonu</title>
   <style>
-    /* Dikey fotoğraflar için çözüm */
+   /* ---- İLETİŞİM SAYFASI HERO GÖRSEL DÜZENİ ---- */
 .hero {
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #000; /* kenarlarda estetik boşluk */
+  background-size: contain !important;   /* resmi kırpma, tamamını göster */
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-color: #000 !important;     /* kenarlarda estetik dolgu */
+  height: 80vh;                          /* ekranın %80 yüksekliğinde sabit */
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-}
-
-/* Görsel masaüstünde fazla yataysa sığacak şekilde küçült */
-@media (min-width: 1025px) {
-  .hero {
-    background-size: contain; /* kırpmaz */
-  }
-}
-
-/* Mobilde taşma olmasın, tam ekran kaplasın */
-@media (max-width: 1024px) {
-  .hero {
-    background-size: cover;
-  }
-}
-
-    /* ==== HERO GÖRSELLERİNİN TÜM CİHAZLARDA ORANTILI GÖRÜNMESİ ==== */
-
-/* Varsayılan (tablet/orta ekranlar için dengeli görünüm) */
-.hero {
-  width: 100%;
-  min-height: 80vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
-  color: #fff;
   position: relative;
   overflow: hidden;
 }
 
-/* Masaüstünde resim tamamen görünsün (zoom yapmasın) */
-@media (min-width: 1025px) {
-  .hero {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 90vh;
-    background-color: #000; /* kenarlarda boşluk olursa estetik dursun */
-  }
-}
-
-/* Mobil ve tablet görünüm (taşma olmasın, ekrana otursun) */
-@media (max-width: 1024px) {
-  .hero {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 65vh;
-  }
-}
-
-/* Hero içeriği (başlık ve butonlar) görünür ve ortalı */
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 46px;
-  color: #fff;
-  z-index: 2;
-  margin-bottom: 12px;
-}
-.hero p {
-  font-size: 18px;
-  max-width: 700px;
-  margin: auto;
-  line-height: 1.6;
-}
+/* Başlık karanlıkta da okunabilsin diye */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.25);
   z-index: 1;
 }
-
-/* Hero içeriğini üstte tut */
-.hero > div {
+.hero h1 {
   position: relative;
   z-index: 2;
-}
-
-/* Fade-in efekti */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.hero h1, .hero p, .hero a {
-  animation: fadeIn 1.2s ease-in-out;
+  color: #fff;
 }
 
     :root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
