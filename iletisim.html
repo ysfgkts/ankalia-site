@@ -5,16 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>İletişim | Ankalia Davet Salonu</title>
   <style>
-  /* === Masaüstü tarayıcılar için dikey görsel düzeni === */
-@media (min-width: 1025px) {
-  .hero {
-    background-size: contain !important; /* Dikey fotoğrafı kırpma */
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-color: #000 !important; /* yanlarda estetik kenarlık */
-    height: 90vh !important; /* ekranın %90’ını kaplasın */
+ /* === İLETİŞİM SAYFASI - Hero Görsel Ayarı === */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Blur arka plan */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(25px) brightness(60%);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* Ortadaki net dikey görsel */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; /* net görüntü */
+  z-index: 1;
+}
+
+/* Yazılar üstte kalacak */
+.hero h1, .hero p {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Mobilde blur’u azalt, tam ekran yap --- */
+@media (max-width: 1024px) {
+  .hero::before {
+    filter: blur(15px) brightness(65%);
+  }
+  .hero::after {
+    background-size: cover; /* mobilde tam kapla */
   }
 }
+
 
 
     :root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
