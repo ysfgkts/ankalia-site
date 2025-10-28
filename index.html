@@ -1,133 +1,89 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ankalia Davet Salonu | Hoş Geldiniz</title>
-  <script>
-    // HTTP -> HTTPS yönlendirmesi
-    if (location.protocol !== 'https:') {
-      location.replace('https://' + location.host + location.pathname + location.search);
-    }
-  </script>
-  <style>
-    /* ====== GENEL ====== */
-    :root{
-      --gold:#c6a14b;
-      --gold-2:#b48c3b;
-      --bg:#fef8f3;
-      --head-bg:rgba(255,248,239,.85);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankalia Davet Salonu | Hoş Geldiniz</title>
+<script>
+if (location.protocol !== 'https:') {
+  location.replace('https://' + location.host + location.pathname + location.search);
+}
+</script>
+<style>
+:root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-    /* ====== HEADER (şık + saydam + mobil menü) ====== */
-    #mainHeader{
-      position:fixed;inset:0 0 auto 0;z-index:999;
-      background:var(--head-bg);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid rgba(198,161,75,.25);
-      transition:background .3s, box-shadow .3s;
-    }
-    #mainHeader.scrolled{
-      background:rgba(255,255,255,.97);
-      box-shadow:0 2px 10px rgba(0,0,0,.08);
-    }
-    .container{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo{
-      display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;
-      color:var(--gold);font-family:'Playfair Display',serif;font-size:26px;
-    }
-    .logo img{height:28px;display:block}
-    nav{display:flex;gap:26px}
-    nav a{color:#333;text-decoration:none;font-weight:500;position:relative}
-    nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .25s}
-    nav a:hover{color:var(--gold)}
-    nav a:hover::after{width:100%}
-    .menu-toggle{display:none;font-size:26px;color:var(--gold);cursor:pointer;user-select:none}
+#mainHeader{position:fixed;inset:0 0 auto 0;z-index:999;background:var(--head-bg);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,161,75,.25)}
+.container{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;color:var(--gold);text-decoration:none}
+nav{display:flex;gap:26px}
+nav a{color:#333;text-decoration:none;font-weight:500;position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .25s}
+nav a:hover{color:var(--gold)}nav a:hover::after{width:100%}
+.menu-toggle{display:none;font-size:26px;color:var(--gold);cursor:pointer}
 
-    /* ====== HERO ====== */
-    .hero{
-      margin-top:72px; /* header yüksekliği kadar boşluk */
-      min-height:84vh;
-      background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)), url('images/ankalia-hero.jpg') center/cover no-repeat;
-      display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px;position:relative
-    }
-    .hero h1{font-family:'Playfair Display',serif;font-size:48px;margin:0 0 10px}
-    .hero p{font-size:18px;max-width:720px;margin:0 auto 16px}
-    .btn{display:inline-block;background:var(--gold);color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:600;transition:background .25s}
-    .btn:hover{background:var(--gold-2)}
+.hero{
+margin-top:72px;min-height:84vh;
+background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('images/ankalia-hero.jpg') center/cover no-repeat;
+background-size:cover;background-position:center;background-repeat:no-repeat;
+display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px
+}
+.hero h1{font-family:'Playfair Display',serif;font-size:48px;margin:0 0 10px}
+.hero p{font-size:18px;max-width:700px;margin:auto}
 
-    /* ====== SECTIONS ====== */
-    section{padding:70px 20px;text-align:center}
-    h2{color:var(--gold);font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px}
-    p.lead{max-width:760px;margin:0 auto 18px;line-height:1.75}
+.btn{display:inline-block;margin-top:16px;background:var(--gold);color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;transition:.3s}
+.btn:hover{background:var(--gold-2)}
 
-    /* ====== FOOTER ====== */
-    footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
+section{padding:70px 20px;text-align:center}
+h2{color:var(--gold);font-family:'Playfair Display',serif;font-size:32px;margin-bottom:14px}
+p.lead{max-width:760px;margin:auto;line-height:1.7}
 
-    /* ====== MOBİL ====== */
-    @media (max-width: 900px){
-      nav{display:none;position:absolute;right:12px;top:64px;background:rgba(255,248,239,.97);border:1px solid rgba(198,161,75,.25);border-radius:12px;flex-direction:column;gap:0;min-width:210px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
-      nav a{padding:12px 18px;display:block}
-      nav.active{display:flex;animation:fadeDown .25s ease}
-      @keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-      .menu-toggle{display:block}
-      .hero{min-height:70vh}
-      .hero h1{font-size:30px}
-      .hero p{font-size:16px}
-    }
-  </style>
+footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
+
+@media(max-width:900px){
+nav{display:none;position:absolute;right:12px;top:64px;background:rgba(255,248,239,.97);border:1px solid rgba(198,161,75,.25);border-radius:12px;flex-direction:column;min-width:210px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+nav a{padding:12px 18px;display:block}
+nav.active{display:flex}
+.menu-toggle{display:block}
+.hero h1{font-size:30px}.hero p{font-size:16px}
+}
+</style>
 </head>
 <body>
-  <!-- HEADER -->
-  <header id="mainHeader">
-    <div class="container">
-      <a href="index.html" class="logo">
-        <img src="images/logo-light.png" alt="Ankalia Logo" onerror="this.style.display='none'">
-        Ankalia
-      </a>
-      <nav id="navbar">
-        <a href="index.html">Ana Sayfa</a>
-        <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="hizmetler.html">Hizmetler</a>
-        <a href="menuler.html">Menüler</a>
-        <a href="iletisim.html">İletişim</a>
-      </nav>
-      <div class="menu-toggle" id="mobileMenu">☰</div>
-    </div>
-  </header>
+<header id="mainHeader">
+<div class="container">
+<a href="index.html" class="logo">Ankalia</a>
+<nav id="navbar">
+<a href="index.html">Ana Sayfa</a>
+<a href="hakkimizda.html">Hakkımızda</a>
+<a href="hizmetler.html">Hizmetler</a>
+<a href="menuler.html">Menüler</a>
+<a href="iletisim.html">İletişim</a>
+</nav>
+<div class="menu-toggle" id="mobileMenu">☰</div>
+</div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>Hayalinizdeki Davet Burada Başlar</h1>
-      <p>Düğün, nişan, kına, after party ve kahvaltı davetlerinde zarafet ile kaliteyi bir araya getiriyoruz. 500 kişi kapasite, şık dekorasyon, profesyonel ekip.</p>
-      <a href="hakkimizda.html" class="btn">Bizi Tanıyın</a>
-    </div>
-  </section>
+<section class="hero">
+<div>
+<h1>Hayalinizdeki Davet Burada Başlar</h1>
+<p>Düğün, nişan, kına, after party ve kahvaltı davetlerinde zarafet ile kaliteyi bir araya getiriyoruz.</p>
+<a href="hakkimizda.html" class="btn">Bizi Tanıyın</a>
+</div>
+</section>
 
-  <!-- WELCOME -->
-  <section>
-    <h2>Hoş Geldiniz</h2>
-    <p class="lead">Ankalia Davet Salonu’nda unutulmaz anılar biriktirmeniz için her detay özenle planlanır. Modern mimari, şık dekorasyon ve deneyimli ekibimizle her organizasyonda kusursuz bir deneyim sunuyoruz.</p>
-    <a href="hizmetler.html" class="btn">Hizmetlerimizi Görün</a>
-  </section>
+<section>
+<h2>Hoş Geldiniz</h2>
+<p class="lead">300–500 kişi kapasiteli salonumuzda unutulmaz anılar biriktirmeniz için her detay özenle düşünülmüştür. Modern mimari, şık dekorasyon ve profesyonel ekip ile hizmetinizdeyiz.</p>
+<a href="hizmetler.html" class="btn">Hizmetlerimizi Görün</a>
+</section>
 
-  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.</footer>
-
-  <script>
-    document.getElementById('year').textContent=new Date().getFullYear();
-    // Scroll header efekti
-    const header = document.getElementById('mainHeader');
-    window.addEventListener('scroll',()=> {
-      if(window.scrollY>30){ header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
-    });
-    // Mobil menü
-    const mobileMenu = document.getElementById('mobileMenu');
-    const nav = document.getElementById('navbar');
-    mobileMenu.addEventListener('click',()=> nav.classList.toggle('active'));
-  </script>
+<footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.</footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('mobileMenu').onclick=()=>document.getElementById('navbar').classList.toggle('active');
+</script>
 </body>
 </html>
