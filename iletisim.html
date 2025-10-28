@@ -19,13 +19,22 @@
     .info{max-width:700px;margin:auto;line-height:1.7;}
     .info a{color:#c6a14b;text-decoration:none;}
     .map{margin-top:40px;}
-    iframe{width:90%;max-width:800px;height:300px;border:0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+    iframe{width:90%;max-width:800px;height:350px;border:0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
     form{background:#fff;padding:30px;border-radius:14px;box-shadow:0 4px 10px rgba(0,0,0,0.05);max-width:600px;margin:40px auto;text-align:left;}
     label{display:block;margin-bottom:8px;font-weight:500;}
     input,textarea{width:100%;padding:10px;border:1px solid #e3d8c2;border-radius:8px;margin-bottom:14px;font-family:'Poppins';}
     button{background:#c6a14b;color:#fff;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;}
     button:hover{background:#b48c3b;}
     footer{background:#fff8ef;padding:20px 0;text-align:center;border-top:2px solid #c6a14b;color:#6e5e41;font-size:14px;margin-top:60px;}
+
+    /* Mobil uyumluluk */
+    @media (max-width:768px){
+      .hero{height:40vh;}
+      .hero h1{font-size:28px;}
+      iframe{width:95%;height:300px;}
+      form{width:90%;padding:20px;}
+      nav a{margin:0 8px;font-size:14px;}
+    }
   </style>
 </head>
 <body>
@@ -56,7 +65,7 @@
     </div>
 
     <div class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12233.12345!2d32.6500!3d39.9500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAnkalia%20Davet%20Salonu!5e0!3m2!1str!2str!4v1234567890"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d191.52821196121266!2d32.79711323625502!3d39.81929613545937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345d9118daca7%3A0x96c9a6dec2eef880!2sAnkalia%20Davet%20ve%20Balo%20Salonu!5e0!3m2!1str!2str!4v1761685494976!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <form>
