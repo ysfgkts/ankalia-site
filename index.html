@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <!-- HTTPS yönlendirmesi -->
-  <script>
-    if (location.protocol !== 'https:') {
-      location.replace('https://' + location.host + location.pathname + location.search);
-    }
-  </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ankalia Davet Salonu | Hoş Geldiniz</title>
@@ -17,9 +10,13 @@
       font-family: 'Poppins', sans-serif;
       background: #fef8f3;
       color: #333;
-      animation: fadeIn 1.2s ease-in-out;
+      animation: fadeIn 1s ease-in-out;
     }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     header {
       background: #fff8ef;
       border-bottom: 2px solid #c6a14b;
@@ -47,8 +44,10 @@
       color: #333;
       margin: 0 14px;
       font-weight: 500;
+      transition: color .3s;
     }
     nav a:hover { color: #c6a14b; }
+
     .hero {
       height: 90vh;
       background: url('images/ankalia-hero.jpg') center/cover no-repeat;
@@ -64,11 +63,12 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0,0,0,0.35);
     }
     .hero-content {
       position: relative;
       z-index: 1;
+      padding: 0 20px;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
@@ -89,10 +89,26 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s;
+      transition: background .3s;
     }
     .btn:hover { background: #b48c3b; }
-    section { padding: 80px 0; text-align: center; }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    section h2 {
+      color: #c6a14b;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    section p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
     footer {
       background: #fff8ef;
       padding: 20px 0;
@@ -100,6 +116,40 @@
       border-top: 2px solid #c6a14b;
       color: #6e5e41;
       font-size: 14px;
+    }
+
+    /* Mobil uyum */
+    @media (max-width: 768px) {
+      .hero {
+        height: 70vh;
+        background-position: center;
+      }
+      .hero h1 {
+        font-size: 28px;
+      }
+      .hero p {
+        font-size: 16px;
+        padding: 0 15px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+      nav a {
+        margin: 6px;
+        font-size: 14px;
+      }
+      section {
+        padding: 50px 15px;
+      }
+      section h2 {
+        font-size: 26px;
+      }
+      section p {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
@@ -114,7 +164,7 @@
         <a href="iletisim.html">İletişim</a>
       </nav>
     </div>
-  </header> <!-- 🔥 burası daha önce hatalıydı ("</er>" yazıyordu) -->
+  </header>
 
   <section class="hero">
     <div class="hero-content">
