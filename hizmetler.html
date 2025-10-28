@@ -5,81 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hizmetler | Ankalia Davet Salonu</title>
   <style>
-    /* ==== HERO GÖRSELLERİNİN TÜM CİHAZLARDA ORANTILI GÖRÜNMESİ ==== */
-
-/* Varsayılan (tablet/orta ekranlar için dengeli görünüm) */
+  /* === İLETİŞİM SAYFASI - Hero Görsel Ayarı === */
 .hero {
+  position: relative;
   width: 100%;
-  min-height: 80vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #fff;
-  position: relative;
   overflow: hidden;
 }
 
-/* Masaüstünde resim tamamen görünsün (zoom yapmasın) */
-@media (min-width: 1025px) {
-  .hero {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 90vh;
-    background-color: #000; /* kenarlarda boşluk olursa estetik dursun */
-  }
+/* Blur arka plan */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(25px) brightness(60%);
+  transform: scale(1.1);
+  z-index: 0;
 }
 
-/* Mobil ve tablet görünüm (taşma olmasın, ekrana otursun) */
-@media (max-width: 1024px) {
-  .hero {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 65vh;
-  }
-}
-
-/* Hero içeriği (başlık ve butonlar) görünür ve ortalı */
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 46px;
-  color: #fff;
-  z-index: 2;
-  margin-bottom: 12px;
-}
-.hero p {
-  font-size: 18px;
-  max-width: 700px;
-  margin: auto;
-  line-height: 1.6;
-}
+/* Ortadaki net dikey görsel */
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background-image: inherit;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; /* net görüntü */
   z-index: 1;
 }
 
-/* Hero içeriğini üstte tut */
-.hero > div {
+/* Yazılar üstte kalacak */
+.hero h1, .hero p {
   position: relative;
   z-index: 2;
 }
 
-/* Fade-in efekti */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* --- Mobilde blur’u azalt, tam ekran yap --- */
+@media (max-width: 1024px) {
+  .hero::before {
+    filter: blur(15px) brightness(65%);
+  }
+  .hero::after {
+    background-size: cover; /* mobilde tam kapla */
+  }
 }
-.hero h1, .hero p, .hero a {
-  animation: fadeIn 1.2s ease-in-out;
-}
+
 
     :root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
     *{box-sizing:border-box} body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
