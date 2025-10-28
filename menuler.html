@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menüler | Ankalia Davet Salonu</title>
   <style>
-    /* === Sabit Sosyal Medya Butonları === */
+/* === Sabit Sosyal Medya Butonları === */
 .social-buttons {
   position: fixed;
-  bottom: 70px;             /* biraz yukarı aldık */
+  bottom: 70px;             /* footer'dan yukarıda */
   right: 25px;
   display: flex;
   flex-direction: column;
@@ -20,29 +20,31 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #c6a14b;
+  background: #fff8ef;       /* açık bej */
+  border: 2px solid #c6a14b; /* altın çerçeve */
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease, background 0.3s ease;
+  transition: transform 0.25s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-buttons a:hover {
-  transform: translateY(-3px) scale(1.05);
-  background: #b48c3b;
+  transform: translateY(-3px) scale(1.08);
+  background: #c6a14b;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
 .social-buttons img {
   width: 28px;
   height: 28px;
-  filter: brightness(0) invert(1);
+  object-fit: contain;
 }
 
 /* Mobilde biraz küçült */
 @media (max-width: 600px) {
   .social-buttons {
-    bottom: 20px;
+    bottom: 25px;
     right: 15px;
   }
   .social-buttons a {
