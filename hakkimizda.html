@@ -5,22 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hakkımızda | Ankalia Davet Salonu</title>
   <style>
-    body{margin:0;font-family:'Poppins',sans-serif;background:#fef8f3;color:#333;animation:fadeIn 1.2s ease-in-out;}
-    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-    header{background:#fff8ef;border-bottom:2px solid #c6a14b;position:sticky;top:0;z-index:100;}
-    .container{width:min(1200px,90%);margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 0;}
-    .logo{font-family:'Playfair Display',serif;font-size:24px;color:#c6a14b;font-weight:700;text-decoration:none;}
-    nav a{text-decoration:none;color:#333;margin:0 14px;font-weight:500;}
-    nav a:hover{color:#c6a14b;}
-    .hero{height:60vh;background:url('images/ankalia-about.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;position:relative;}
-    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4);}
-    .hero h1{position:relative;z-index:1;color:#fff;font-family:'Playfair Display',serif;font-size:42px;}
-    section{padding:80px 0;text-align:center;}
-    .about{max-width:900px;margin:auto;line-height:1.7;}
-    h2{color:#c6a14b;font-family:'Playfair Display',serif;font-size:28px;margin-bottom:10px;}
-    .btn{display:inline-block;margin-top:18px;background:#c6a14b;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;transition:background .3s;}
-    .btn:hover{background:#b48c3b;}
-    footer{background:#fff8ef;padding:20px 0;text-align:center;border-top:2px solid #c6a14b;color:#6e5e41;font-size:14px;}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fef8f3;
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      background: #fff8ef;
+      border-bottom: 2px solid #c6a14b;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .container {
+      width: min(1200px, 90%);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #c6a14b;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 14px;
+      font-weight: 500;
+      transition: color .3s;
+    }
+    nav a:hover { color: #c6a14b; }
+
+    .hero {
+      height: 60vh;
+      background: url('images/ankalia-hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+    }
+
+    .about {
+      width: min(1100px, 90%);
+      margin: 80px auto;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .about img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+      line-height: 1.8;
+    }
+    .about-text h2 {
+      color: #c6a14b;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .about-text p {
+      margin-bottom: 14px;
+    }
+
+    footer {
+      background: #fff8ef;
+      padding: 20px 0;
+      text-align: center;
+      border-top: 2px solid #c6a14b;
+      color: #6e5e41;
+      font-size: 14px;
+    }
+
+    /* Mobil uyum */
+    @media (max-width: 768px) {
+      .hero {
+        height: 40vh;
+        background-position: center;
+      }
+      .hero h1 {
+        font-size: 28px;
+        padding: 0 10px;
+      }
+      .about {
+        flex-direction: column;
+        text-align: center;
+        margin: 50px auto;
+        gap: 25px;
+      }
+      .about img {
+        max-width: 90%;
+      }
+      .about-text h2 {
+        font-size: 26px;
+      }
+      .about-text p {
+        font-size: 15px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+      nav a {
+        margin: 6px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -40,20 +164,22 @@
     <h1>Hakkımızda</h1>
   </div>
 
-  <section>
-    <div class="about">
-      <h2>Ankalia’nın Hikayesi</h2>
-      <p>Ankalia Davet Salonu, zarafeti, konforu ve kaliteyi bir araya getirerek misafirlerine unutulmaz anlar yaşatmak amacıyla kurulmuştur. Modern mimarisi, ferah atmosferi ve özenle seçilmiş detaylarıyla her daveti özel kılar.</p>
-      <p>300–500 kişilik kapasitesiyle düğün, nişan, kına, söz, after party, kurumsal organizasyon ve kahvaltı davetleri için ideal bir mekandır. Profesyonel ekibimiz, etkinliğinizin her aşamasında yanınızdadır.</p>
-      <h2>Vizyonumuz</h2>
-      <p>Her etkinliği sadece bir organizasyon değil, unutulmaz bir deneyim haline getirmek. Ankalia olarak misafir memnuniyetini ön planda tutuyor, her daveti estetik ve kaliteyle buluşturuyoruz.</p>
-      <a href="hizmetler.html" class="btn">Hizmetlerimizi Keşfedin</a>
+  <section class="about">
+    <img src="images/ankalia-hall.jpg" alt="Ankalia Davet Salonu">
+    <div class="about-text">
+      <h2>Her Anınız Özel, Her Detay Bizim İşimiz</h2>
+      <p>Ankalia Davet Salonu olarak, her daveti sadece bir etkinlik değil, ömür boyu hatırlanacak bir anı olarak görüyoruz. Modern dekorasyonumuz, geniş ve ferah salonumuz, 300–500 kişilik kapasitemiz ve profesyonel ekibimizle sizleri büyüleyen bir atmosfer sunuyoruz.</p>
+      <p>Düğün, nişan, kına, mezuniyet, kahvaltı organizasyonları ve after party konseptlerinde; estetik, konfor ve kaliteyi bir arada yaşatıyoruz.</p>
+      <p>Misafirlerinizle unutulmaz bir gün geçirmek için tüm detayları özenle planlıyor, hayallerinizi gerçeğe dönüştürüyoruz.</p>
     </div>
   </section>
 
   <footer>
     © <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.
   </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
