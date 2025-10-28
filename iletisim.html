@@ -1,63 +1,69 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>İletişim | Ankalia Davet Salonu</title>
   <style>
-    body{margin:0;font-family:'Poppins',sans-serif;background:#fef8f3;color:#333;animation:fadeIn 1.2s ease-in-out;}
-    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-    header{background:#fff8ef;border-bottom:2px solid #c6a14b;position:sticky;top:0;z-index:100;}
-    .container{width:min(1200px,90%);margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 0;}
-    .logo{font-family:'Playfair Display',serif;font-size:24px;color:#c6a14b;font-weight:700;text-decoration:none;}
-    nav a{text-decoration:none;color:#333;margin:0 14px;font-weight:500;}
-    nav a:hover{color:#c6a14b;}
-    .hero{height:60vh;background:url('images/ankalia-contact.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;position:relative;}
-    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4);}
-    .hero h1{position:relative;z-index:1;color:#fff;font-family:'Playfair Display',serif;font-size:42px;}
-    section{padding:60px 0;text-align:center;}
-    .info{max-width:700px;margin:auto;line-height:1.7;}
-    .info a{color:#c6a14b;text-decoration:none;}
-    .map{margin-top:40px;}
-    iframe{width:90%;max-width:800px;height:350px;border:0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-    form{background:#fff;padding:30px;border-radius:14px;box-shadow:0 4px 10px rgba(0,0,0,0.05);max-width:600px;margin:40px auto;text-align:left;}
-    label{display:block;margin-bottom:8px;font-weight:500;}
-    input,textarea{width:100%;padding:10px;border:1px solid #e3d8c2;border-radius:8px;margin-bottom:14px;font-family:'Poppins';}
-    button{background:#c6a14b;color:#fff;padding:12px 24px;border:none;border-radius:8px;font-weight:600;cursor:pointer;}
-    button:hover{background:#b48c3b;}
-    footer{background:#fff8ef;padding:20px 0;text-align:center;border-top:2px solid #c6a14b;color:#6e5e41;font-size:14px;margin-top:60px;}
+    :root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
+    *{box-sizing:border-box} body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-    /* Mobil uyumluluk */
-    @media (max-width:768px){
-      .hero{height:40vh;}
-      .hero h1{font-size:28px;}
-      iframe{width:95%;height:300px;}
-      form{width:90%;padding:20px;}
-      nav a{margin:0 8px;font-size:14px;}
+    #mainHeader{position:fixed;inset:0 0 auto 0;z-index:999;background:var(--head-bg);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,161,75,.25);transition:background .3s, box-shadow .3s}
+    #mainHeader.scrolled{background:rgba(255,255,255,.97);box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    .container{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;font-size:26px}
+    .logo img{height:28px}
+    nav{display:flex;gap:26px}
+    nav a{color:#333;text-decoration:none;font-weight:500;position:relative}
+    nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .25s}
+    nav a:hover{color:var(--gold)} nav a:hover::after{width:100%}
+    .menu-toggle{display:none;font-size:26px;color:var(--gold);cursor:pointer}
+
+    .hero{margin-top:72px;min-height:40vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/ankalia-contact.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px}
+    .hero h1{font-family:'Playfair Display',serif;font-size:40px;margin:0}
+
+    section{padding:60px 20px;text-align:center}
+    .info{max-width:720px;margin:0 auto 22px;line-height:1.8}
+    .info a{color:var(--gold);text-decoration:none}
+    .map{margin-top:24px}
+    .map iframe{width:90%;max-width:860px;height:360px;border:0;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+    form{background:#fff;padding:28px;border-radius:14px;box-shadow:0 4px 10px rgba(0,0,0,.06);max-width:640px;margin:36px auto;text-align:left}
+    label{display:block;margin-bottom:8px;font-weight:500}
+    input,textarea{width:100%;padding:12px;border:1px solid #e3d8c2;border-radius:10px;margin-bottom:14px;font-family:'Poppins'}
+    button{background:var(--gold);color:#fff;padding:12px 20px;border:none;border-radius:10px;font-weight:600;cursor:pointer}
+    button:hover{background:var(--gold-2)}
+
+    footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
+
+    @media (max-width:900px){
+      nav{display:none;position:absolute;right:12px;top:64px;background:rgba(255,248,239,.97);border:1px solid rgba(198,161,75,.25);border-radius:12px;flex-direction:column;min-width:210px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+      nav a{padding:12px 18px;display:block}
+      nav.active{display:flex;animation:fadeDown .25s ease}@keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+      .menu-toggle{display:block}
+      .map iframe{width:95%;height:320px}
     }
   </style>
 </head>
 <body>
-  <header>
+  <header id="mainHeader">
     <div class="container">
-      <a href="index.html" class="logo">Ankalia Davet Salonu</a>
-      <nav>
+      <a href="index.html" class="logo"><img src="images/logo-dark.png" alt="" onerror="this.style.display='none'">Ankalia</a>
+      <nav id="navbar">
         <a href="index.html">Ana Sayfa</a>
         <a href="hakkimizda.html">Hakkımızda</a>
         <a href="hizmetler.html">Hizmetler</a>
         <a href="menuler.html">Menüler</a>
+        <a href="iletisim.html">İletişim</a>
       </nav>
+      <div class="menu-toggle" id="mobileMenu">☰</div>
     </div>
   </header>
 
-  <div class="hero">
-    <h1>İletişim</h1>
-  </div>
+  <section class="hero"><h1>İletişim</h1></section>
 
   <section>
     <div class="info">
-      <h2>Bize Ulaşın</h2>
-      <p>Rezervasyon, fiyat teklifi ve detaylı bilgi için bizimle iletişime geçebilirsiniz. Profesyonel ekibimiz en kısa sürede size dönüş yapacaktır.</p>
       <p><strong>Telefon:</strong> <a href="tel:+905xxxxxxxxx">+90 5xx xxx xx xx</a></p>
       <p><strong>E-posta:</strong> <a href="mailto:info@ankaliadavetevi.com">info@ankaliadavetevi.com</a></p>
       <p><strong>Instagram:</strong> <a href="https://instagram.com/ankaliadavetsalonu" target="_blank">@ankaliadavetsalonu</a></p>
@@ -65,26 +71,28 @@
     </div>
 
     <div class="map">
+      <!-- Senin gönderdiğin embed -->
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d191.52821196121266!2d32.79711323625502!3d39.81929613545937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345d9118daca7%3A0x96c9a6dec2eef880!2sAnkalia%20Davet%20ve%20Balo%20Salonu!5e0!3m2!1str!2str!4v1761685494976!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <form>
+    <form onsubmit="event.preventDefault(); alert('Teşekkürler! Mesajınız alındı. (E-posta entegrasyonunu istersen kurarız)');">
       <label for="isim">Ad Soyad</label>
       <input type="text" id="isim" name="isim" required>
-
       <label for="email">E-posta</label>
       <input type="email" id="email" name="email" required>
-
       <label for="mesaj">Mesajınız</label>
       <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
-
       <button type="submit">Gönder</button>
     </form>
   </section>
 
-  <footer>
-    © <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.
-  </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.</footer>
+
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const header=document.getElementById('mainHeader');
+    window.addEventListener('scroll',()=> header.classList.toggle('scrolled', window.scrollY>30));
+    document.getElementById('mobileMenu').addEventListener('click',()=>document.getElementById('navbar').classList.toggle('active'));
+  </script>
 </body>
 </html>
