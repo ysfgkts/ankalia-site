@@ -4,17 +4,99 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ankalia Davet Salonu | Düğün • Nişan • Kına • After Party • Söz • Kahvaltı</title>
-  <meta name="description" content="Ankalia Davet Salonu — Düğün, nişan, kına, söz, sünnet, kurumsal organizasyonlar, after party ve kahvaltı davetleri için şık ve modern bir mekan. Online rezervasyon ve fiyat teklifi alın." />
+  <meta name="description" content="Ankalia Davet Salonu — Düğün, nişan, kına, söz, sünnet, kurumsal organizasyonlar, after party ve kahvaltı davetleri için şık ve modern bir mekan." />
   <meta name="keywords" content="Ankalia, davet salonu, düğün, nişan, kına, söz, sünnet, after party, kahvaltı, organizasyon, Ankara, Kırıkkale" />
   <meta name="theme-color" content="#7b4cff" />
   <meta property="og:title" content="Ankalia Davet Salonu" />
   <meta property="og:description" content="Düğün, nişan, kına, söz, kurumsal organizasyonlar, after party ve kahvaltı için özel davet evi." />
-  <meta property="og:type" content="website" />
   <meta property="og:image" content="images/ankalia-hero.jpg" />
   <meta property="og:url" content="https://ankaliadavetevi.com" />
+  <style>
+    body {margin:0;font-family:Poppins,Arial,sans-serif;background-color:#0d0b1f;color:white;}
+    header{position:sticky;top:0;background:rgba(13,11,31,.8);padding:12px 0;z-index:10;backdrop-filter:blur(8px);}
+    .container{width:min(1200px,92%);margin:auto;}
+    nav a{color:#bdb5e3;margin-right:18px;text-decoration:none;}
+    nav a:hover{color:white;}
+    .hero{position:relative;height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;background-image:url('images/ankalia-hero.jpg');background-size:cover;background-position:center;}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);}
+    .hero-content{position:relative;z-index:2;}
+    .hero h1{font-size:46px;margin-bottom:10px;font-family:'Playfair Display',serif;}
+    .hero p{max-width:640px;margin:auto;font-size:18px;color:#d1c9ff;}
+    section{padding:70px 0;border-top:1px solid rgba(255,255,255,.06);}
+    h2{font-family:'Playfair Display',serif;font-size:34px;margin-bottom:10px;}
+    .muted{color:#aaa3ce;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+    .card{background:rgba(255,255,255,.05);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,.08);}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(135deg,#7b4cff,#00e1ff);color:white;font-weight:600;text-decoration:none;margin-top:10px;}
+    footer{text-align:center;padding:20px 0;border-top:1px solid rgba(255,255,255,.1);color:#bdb5e3;font-size:14px;}
+  </style>
 </head>
 <body>
-  <h1>index.html dosyası başarıyla hazırlandı 🎉</h1>
-  <p>Bu dosyayı GitHub’a yükleyip Vercel’e bağladığında siten otomatik olarak yayına alınacak.</p>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+      <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;">Ankalia Davet Salonu</div>
+      <nav>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#hizmetler">Hizmetler</a>
+        <a href="#menuler">Menüler</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hayalinizdeki Davet İçin Ankalia</h1>
+      <p>Düğün, nişan, kına, söz, sünnet, after party ve kahvaltı davetlerinde modern konsept, şık atmosfer ve profesyonel hizmet.</p>
+      <a class="btn" href="#iletisim">Rezervasyon Yap</a>
+    </div>
+  </section>
+
+  <section id="hakkimizda" style="background:url('images/ankalia-about.jpg') center/cover fixed;">
+    <div class="container" style="backdrop-filter:brightness(0.4);padding:60px;border-radius:18px;">
+      <h2>Hakkımızda</h2>
+      <p class="muted">Ankalia Davet Salonu; düğün, nişan, kına, söz, sünnet, kurumsal toplantı ve özel organizasyonlarda yanınızda. Her detayda kaliteyi, estetiği ve konforu bir araya getiriyoruz.</p>
+      <p><strong>Kapasite:</strong> 300–500 kişi arası</p>
+    </div>
+  </section>
+
+  <section id="hizmetler">
+    <div class="container">
+      <h2>Hizmetlerimiz</h2>
+      <div class="grid">
+        <div class="card"><h3>Düğün & Nişan</h3><p class="muted">Gelin yolu, sahne, ışık sistemleri, profesyonel ses, canlı müzik ve dekorasyon.</p></div>
+        <div class="card"><h3>Kına & Söz</h3><p class="muted">Kına tahtı, kına ekibi, davul şov, konsept süsleme, misafir karşılama.</p></div>
+        <div class="card"><h3>Kurumsal Organizasyonlar</h3><p class="muted">Lansman, bayi toplantısı, ödül töreni, yemekli etkinlikler.</p></div>
+        <div class="card"><h3>After Party</h3><p class="muted">Gece konseptleri, DJ performansı, özel ışık ve ses sistemleri.</p></div>
+        <div class="card"><h3>Kahvaltı & Brunch</h3><p class="muted">Açık büfe veya serpme kahvaltı seçenekleriyle güne keyifli başlangıç.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menuler">
+    <div class="container">
+      <h2>Menüler</h2>
+      <div class="grid">
+        <div class="card"><h3>Kokteyl Menü</h3><ul><li>Karşılama içeceği</li><li>Mini kanepeler</li><li>Tatlı-tuzlu atıştırmalıklar</li></ul></div>
+        <div class="card"><h3>Standart Menü</h3><ul><li>Başlangıç & Ara sıcak</li><li>Ana yemek (tavuk veya et)</li><li>Meşrubat & Tatlı</li></ul></div>
+        <div class="card"><h3>Premium Menü</h3><ul><li>Seçmeli başlangıçlar</li><li>Et, ızgara veya fırın yemekleri</li><li>Tatlı & Sınırsız içecek</li></ul></div>
+        <div class="card"><h3>Kahvaltı Menüsü</h3><ul><li>Serpme kahvaltı</li><li>Sıcak-soğuk içecek</li><li>Reçel, peynir, zeytin, börek</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim">
+    <div class="container">
+      <h2>İletişim</h2>
+      <p class="muted">Rezervasyon ve detaylı bilgi için bizimle iletişime geçebilirsiniz.</p>
+      <p><strong>Telefon:</strong> <a href="tel:+905xxxxxxxxx" style="color:white;">+90 5xx xxx xx xx</a></p>
+      <p><strong>E-posta:</strong> <a href="mailto:info@ankaliadavetevi.com" style="color:white;">info@ankaliadavetevi.com</a></p>
+      <p><strong>Instagram:</strong> <a href="https://instagram.com/ankaliadavetsalonu" target="_blank" style="color:white;">@ankaliadavetsalonu</a></p>
+      <p><strong>Adres:</strong> Ankara / Kırıkkale hattı — otopark ve kolay ulaşım imkânı.</p>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.</footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
