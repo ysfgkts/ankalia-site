@@ -10,120 +10,121 @@ if (location.protocol !== 'https:') {
 }
 </script>
 <style>
-  /* === Sabit Sosyal Medya Butonları === */
-.social-buttons {
-  position: fixed;
-  bottom: 70px;
-  right: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  z-index: 9999;
+:root {
+  --gold:#c6a14b;
+  --gold-light:#e5c974;
+  --bg:#fef8f3;
+  --head-bg:rgba(255,248,239,.85);
 }
 
-.social-buttons a {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #fff8ef;
-  border: 2px solid #c6a14b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease, background 0.3s ease, box-shadow 0.3s ease;
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+#mainHeader{
+  position:fixed;inset:0 0 auto 0;z-index:999;
+  background:var(--head-bg);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(198,161,75,.25);
+}
+.container{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;color:var(--gold);text-decoration:none}
+nav{display:flex;gap:26px}
+nav a{color:#333;text-decoration:none;font-weight:500;position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .25s}
+nav a:hover{color:var(--gold)}nav a:hover::after{width:100%}
+.menu-toggle{display:none;font-size:26px;color:var(--gold);cursor:pointer}
+
+/* === HERO === */
+.hero{
+  margin-top:72px;min-height:84vh;
+  background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('images/ankalia-hero.jpg') center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px;position:relative;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at center,rgba(255,255,255,.15) 0%,transparent 70%);
+  pointer-events:none;
 }
 
-.social-buttons a:hover {
-  transform: translateY(-3px) scale(1.08);
-  background: #c6a14b;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+/* === ANA BAŞLIK === */
+.hero h1{
+  position:relative;
+  display:inline-block;
+  font-family:'Playfair Display',serif;
+  font-size:52px;margin:0 0 28px;
+  background:linear-gradient(90deg,var(--gold-light),#fff,var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+  text-shadow:0 2px 6px rgba(0,0,0,0.35);
+  animation:fadeInTitle 1.2s ease;
 }
 
-.social-buttons img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
+/* ✨ ALTIN IŞIK DALGASI ✨ */
+.hero h1::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-12px;
+  width:120px;
+  height:3px;
+  border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--gold-light),transparent);
+  transform:translateX(-50%);
+  animation:shineWave 3s linear infinite;
+  box-shadow:0 0 10px rgba(198,161,75,0.6);
 }
 
-@media (max-width: 600px) {
-  .social-buttons { bottom: 25px; right: 15px; }
-  .social-buttons a { width: 48px; height: 48px; }
-  .social-buttons img { width: 24px; height: 24px; }
+@keyframes shineWave {
+  0% {opacity:0.4;transform:translateX(-50%) scaleX(0.8);}
+  50% {opacity:1;transform:translateX(-50%) scaleX(1.3);}
+  100% {opacity:0.4;transform:translateX(-50%) scaleX(0.8);}
 }
 
-/* === Genel Site Ayarları === */
-:root { --gold:#c6a14b; --gold-2:#b48c3b; --bg:#fef8f3; --head-bg:rgba(255,248,239,.85); }
-* { box-sizing: border-box; }
-body { margin:0; font-family:'Poppins',sans-serif; background:var(--bg); color:#333; animation:fadeIn .6s ease; }
-@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes fadeInTitle{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 
-#mainHeader { position:fixed; inset:0 0 auto 0; z-index:999; background:var(--head-bg); backdrop-filter:blur(8px); border-bottom:1px solid rgba(198,161,75,.25); }
-.container { width:min(1200px,92%); margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-.logo { font-family:'Playfair Display',serif; font-weight:700; font-size:26px; color:var(--gold); text-decoration:none; }
-nav { display:flex; gap:26px; }
-nav a { color:#333; text-decoration:none; font-weight:500; position:relative; }
-nav a::after { content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:var(--gold); transition:width .25s; }
-nav a:hover { color:var(--gold); } nav a:hover::after { width:100%; }
-.menu-toggle { display:none; font-size:26px; color:var(--gold); cursor:pointer; }
+.hero p{
+  font-size:20px;max-width:750px;margin:auto;
+  color:#fff;
+  text-shadow:0 0 10px rgba(0,0,0,0.45),0 0 18px rgba(198,161,75,0.5);
+  line-height:1.7;
+  animation:fadeInSubtitle 1.8s ease;
+}
+@keyframes fadeInSubtitle{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 
-/* === Hero === */
-.hero {
-  margin-top:72px; min-height:84vh;
-  background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url('images/ankalia-hero.jpg') center/cover no-repeat;
-  display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; padding:0 20px;
+.btn{
+  display:inline-block;margin-top:26px;background:var(--gold);
+  color:#fff;padding:12px 28px;border-radius:10px;
+  text-decoration:none;font-weight:600;letter-spacing:0.5px;
+  transition:.3s;box-shadow:0 0 12px rgba(198,161,75,0.4);
 }
-.hero h1 { font-family:'Playfair Display',serif; font-size:48px; margin:0 0 10px; }
-.hero p { font-size:18px; max-width:700px; margin:auto; }
-.btn { display:inline-block; margin-top:16px; background:var(--gold); color:#fff; padding:12px 24px; border-radius:10px; text-decoration:none; font-weight:600; transition:.3s; }
-.btn:hover { background:var(--gold-2); }
+.btn:hover{background:#b48c3b;transform:translateY(-2px);box-shadow:0 0 16px rgba(198,161,75,0.7)}
 
-section { padding:70px 20px; text-align:center; }
-h2 { color:var(--gold); font-family:'Playfair Display',serif; font-size:32px; margin-bottom:14px; }
-p.lead { max-width:760px; margin:auto; line-height:1.7; }
+/* === Hoş Geldiniz Bölümü === */
+section{padding:70px 20px;text-align:center}
+h2{color:var(--gold);font-family:'Playfair Display',serif;font-size:32px;margin-bottom:14px}
+p.lead{max-width:760px;margin:auto;line-height:1.7}
 
-footer { background:#fff8ef; border-top:2px solid var(--gold); padding:18px; text-align:center; color:#6e5e41; font-size:14px; }
+footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
 
-/* === Hoş Geldiniz Animasyonu === */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.welcome-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.welcome-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-  animation: fadeInUp 1.2s ease forwards;
-}
-.welcome-section h2 {
-  color: #c6a14b;
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-.welcome-section p {
-  line-height: 1.9;
-  font-size: 17px;
-  max-width: 850px;
-  margin: auto;
-  color: #333;
-}
+/* Sosyal medya sabit */
+.social-buttons{position:fixed;bottom:70px;right:25px;display:flex;flex-direction:column;gap:14px;z-index:9999}
+.social-buttons a{width:56px;height:56px;border-radius:50%;background:#fff8ef;border:2px solid #c6a14b;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.25);transition:transform .25s ease,background .3s ease,box-shadow .3s ease}
+.social-buttons a:hover{transform:translateY(-3px) scale(1.08);background:#c6a14b;box-shadow:0 6px 16px rgba(0,0,0,0.3)}
+.social-buttons img{width:28px;height:28px;object-fit:contain}
 
 @media(max-width:900px){
   nav{display:none;position:absolute;right:12px;top:64px;background:rgba(255,248,239,.97);border:1px solid rgba(198,161,75,.25);border-radius:12px;flex-direction:column;min-width:210px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
   nav a{padding:12px 18px;display:block}
   nav.active{display:flex}
   .menu-toggle{display:block}
-  .hero h1{font-size:30px}.hero p{font-size:16px}
+  .hero h1{font-size:34px}
+  .hero p{font-size:16px}
 }
 </style>
 </head>
 <body>
+
 <header id="mainHeader">
   <div class="container">
     <a href="index.html" class="logo">Ankalia</a>
@@ -140,22 +141,24 @@ footer { background:#fff8ef; border-top:2px solid var(--gold); padding:18px; tex
 
 <section class="hero">
   <div>
-    <h1>Hayalinizdeki Davet Burada Başlar</h1>
-    <p>Düğün, Nişan, Kına, After Party, Toplantı Yemekleri ve Kahvaltı Davetlerinde Zarafet ile Kaliteyi Bir Araya Getiriyoruz.</p>
+    <h1>Hayalinizdeki Davet Burada Başlar ✨</h1>
+    <p>
+      Düğün, Nişan, Kına, After Party, Toplantı Yemekleri ve Kahvaltı Davetlerinde  
+      <span style="color:#ffd87a;font-weight:600;">Zarafet</span> ile  
+      <span style="color:#fff;font-weight:600;text-shadow:0 0 10px rgba(255,255,255,0.6);">Kaliteyi</span>  
+      bir araya getiriyoruz.
+    </p>
     <a href="hakkimizda.html" class="btn">Bizi Tanıyın</a>
   </div>
 </section>
 
-<!-- 🔥 Hoş Geldiniz Animasyonlu Metin -->
 <section class="welcome-section" id="welcome">
   <h2>Hoş Geldiniz ✨</h2>
-  <p>
-    <strong>📍 Ankara’nın kalbinde, zarafetin ve ışıltının buluştuğu yeni adres: <span style="color:#c6a14b;">Ankalia Davet Salonu</span>.</strong><br><br>
-    💎 500 kişilik geniş ve modern salonumuzda, hayatınızın en özel anlarını kusursuz bir atmosferde yaşamanız için 
-    <strong>her ayrıntı titizlikle tasarlandı.</strong><br><br>
-    💐 Işıkların dans ettiği şık dekorasyonumuz, son teknoloji ses ve ışık sistemlerimiz, profesyonel servis ekibimiz 
-    ve özenle hazırlanan özel menülerimizle; 
-    <span style="color:#c6a14b;">düğün, nişan, kına, mezuniyet</span> ve tüm özel organizasyonlarınızı unutulmaz kılıyoruz.<br><br>
+  <p style="max-width:850px;margin:auto;line-height:1.9;font-size:17px;color:#333;">
+    📍 <strong>Ankara’nın kalbinde, zarafetin ve ışıltının buluştuğu yeni adres: <span style="color:#c6a14b;">Ankalia Davet Salonu</span>.</strong><br><br>
+    💎 500 kişilik geniş ve modern salonumuzda, hayatınızın en özel anlarını kusursuz bir atmosferde yaşamanız için her ayrıntı titizlikle tasarlandı.<br><br>
+    💐 Işıkların dans ettiği dekorasyonumuz, son teknoloji ses ve ışık sistemlerimiz, profesyonel servis ekibimiz 
+    ve özenle hazırlanan menülerimizle; <span style="color:#c6a14b;">düğün, nişan, kına, mezuniyet</span> ve tüm özel organizasyonlarınızı unutulmaz kılıyoruz.<br><br>
     ✨ Ankalia’da her an, zarafetle bütünleşen bir mutluluk hikayesine dönüşür.<br><br>
     💃 Sevdiklerinizle birlikte gülümsemelerin, dansların ve ömürlük hatıraların paylaşıldığı büyüleyici bir geceye hazır olun.<br><br>
     🌟 <strong>Hayalinizdeki daveti gerçeğe dönüştürmek için sizleri Ankalia Davet Salonu’na bekliyoruz.</strong><br>
@@ -164,46 +167,11 @@ footer { background:#fff8ef; border-top:2px solid var(--gold); padding:18px; tex
   <a href="hizmetler.html" class="btn">Hizmetlerimizi Görün</a>
 </section>
 
-<!-- Instagram Bölümü -->
-<section class="instagram-feed">
-  <h2>Bizi Instagram’da Takip Edin</h2>
-  <div class="insta-grid">
-    <iframe src="https://www.instagram.com/ankalia.davetevi/embed" frameborder="0"></iframe>
-  </div>
-</section>
-
-<style>
-.instagram-feed {
-  background:#fff8ef; padding:60px 20px; text-align:center; border-top:2px solid #c6a14b;
-}
-.instagram-feed h2 {
-  font-family:'Playfair Display',serif; color:#c6a14b; font-size:30px; margin-bottom:30px;
-}
-.insta-grid iframe {
-  width:100%; max-width:900px; height:600px; border:none; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1);
-}
-@media (max-width:900px){ .insta-grid iframe { height:520px; } }
-</style>
-
 <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered by USTABAŞI</footer>
 
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
 document.getElementById('mobileMenu').onclick=()=>document.getElementById('navbar').classList.toggle('active');
-
-// 🔥 Hoş Geldiniz animasyonu (tek seferlik)
-document.addEventListener("DOMContentLoaded", function() {
-  const welcome = document.getElementById("welcome");
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        welcome.classList.add("visible");
-        obs.unobserve(welcome);
-      }
-    });
-  });
-  observer.observe(welcome);
-});
 </script>
 
 <div class="social-buttons">
