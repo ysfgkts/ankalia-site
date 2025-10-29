@@ -105,7 +105,14 @@ section{padding:70px 20px;text-align:center}
 h2{color:var(--gold);font-family:'Playfair Display',serif;font-size:32px;margin-bottom:14px}
 p.lead{max-width:760px;margin:auto;line-height:1.7}
 
-footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
+footer{
+  background:#fff8ef;
+  border-top:2px solid var(--gold);
+  padding:18px;
+  text-align:center;
+  color:#6e5e41;
+  font-size:14px;
+}
 
 /* Sosyal medya sabit */
 .social-buttons{position:fixed;bottom:70px;right:25px;display:flex;flex-direction:column;gap:14px;z-index:9999}
@@ -167,8 +174,12 @@ footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-ali
   <a href="hizmetler.html" class="btn">Hizmetlerimizi Görün</a>
 </section>
 
-<footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered by USTABAŞI</footer>
-  <!-- ✨ GERİ SAYIM MODÜLÜ -->
+<!-- ✅ FOOTER DÜZENLENDİ -->
+<footer>
+  © Ankalia Davet Salonu, <span style="color:#c6a14b;font-weight:600;">Ustabaşı Lezzet Ustası</span>’nın profesyonel organizasyon gücüyle hizmet vermektedir.
+</footer>
+
+<!-- ✨ GERİ SAYIM MODÜLÜ -->
 <section id="countdown-section" style="background:#fff8ef;border-top:2px solid #c6a14b;padding:60px 20px;text-align:center;position:relative;overflow:hidden;">
   <h2 style="color:#c6a14b;font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px;animation:shineText 3s infinite alternate;">
     2026 Yaz Sezonu Rezervasyonları Başladı ⏳
@@ -181,28 +192,18 @@ footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-ali
     <span id="days">00</span>g <span id="hours">00</span>s <span id="minutes">00</span>d <span id="seconds">00</span>sn
   </div>
 
-  <!-- Parlayan altın toz efekti -->
   <div class="gold-dust"></div>
 </section>
 
-<!-- 💎 USTABAŞI LEZZET USTASI DOKUNUŞU -->
-<div style="background:#fff;border-top:1px solid rgba(198,161,75,.3);padding:10px;text-align:center;font-size:13px;color:#8b7a56;font-family:'Poppins',sans-serif;">
-  Ankalia Davet Salonu, <span style="color:#c6a14b;font-weight:600;">Ustabaşı Lezzet Ustası</span>’nın profesyonel organizasyon gücüyle hizmet vermektedir.
-</div>
-
-<!-- 🎨 STİL VE ANİMASYON -->
 <style>
 @keyframes glowGold {
   from { text-shadow: 0 0 8px #c6a14b, 0 0 14px #b48c3b; }
   to   { text-shadow: 0 0 16px #f3d48a, 0 0 30px #c6a14b; }
 }
-
 @keyframes shineText {
   from { color:#b48c3b; }
   to { color:#f1c45b; text-shadow:0 0 12px rgba(255,215,130,.8); }
 }
-
-/* Altın tozu efekti */
 .gold-dust::before, .gold-dust::after {
   content:"";
   position:absolute;
@@ -223,34 +224,26 @@ footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-ali
 }
 </style>
 
-<!-- 🕰️ GERİ SAYIM JAVASCRİPT -->
 <script>
 const countdownDate = new Date("June 1, 2026 00:00:00").getTime();
 const timer = setInterval(function() {
   const now = new Date().getTime();
   const distance = countdownDate - now;
-
   if (distance < 0) {
     clearInterval(timer);
     document.getElementById("countdown").innerHTML = "Rezervasyonlar Devam Ediyor 🎉";
     return;
   }
-
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
   document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
   document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
   document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
   document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
 }, 1000);
-</script>
 
-
-<script>
-document.getElementById('year').textContent=new Date().getFullYear();
 document.getElementById('mobileMenu').onclick=()=>document.getElementById('navbar').classList.toggle('active');
 </script>
 
