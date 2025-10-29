@@ -168,6 +168,86 @@ footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-ali
 </section>
 
 <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered by USTABAŞI</footer>
+  <!-- ✨ GERİ SAYIM MODÜLÜ -->
+<section id="countdown-section" style="background:#fff8ef;border-top:2px solid #c6a14b;padding:60px 20px;text-align:center;position:relative;overflow:hidden;">
+  <h2 style="color:#c6a14b;font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px;animation:shineText 3s infinite alternate;">
+    2026 Yaz Sezonu Rezervasyonları Başladı ⏳
+  </h2>
+  <p style="font-size:18px;color:#6e5e41;margin-bottom:30px;">
+    Hayalinizdeki davet için en uygun tarihi kaçırmayın. Geri sayım devam ediyor:
+  </p>
+
+  <div id="countdown" style="font-size:34px;color:#c6a14b;font-weight:700;letter-spacing:2px;animation:glowGold 2.5s ease-in-out infinite alternate;">
+    <span id="days">00</span>g <span id="hours">00</span>s <span id="minutes">00</span>d <span id="seconds">00</span>sn
+  </div>
+
+  <!-- Parlayan altın toz efekti -->
+  <div class="gold-dust"></div>
+</section>
+
+<!-- 💎 USTABAŞI LEZZET USTASI DOKUNUŞU -->
+<div style="background:#fff;border-top:1px solid rgba(198,161,75,.3);padding:10px;text-align:center;font-size:13px;color:#8b7a56;font-family:'Poppins',sans-serif;">
+  Ankalia Davet Salonu, <span style="color:#c6a14b;font-weight:600;">Ustabaşı Lezzet Ustası</span>’nın profesyonel organizasyon gücüyle hizmet vermektedir.
+</div>
+
+<!-- 🎨 STİL VE ANİMASYON -->
+<style>
+@keyframes glowGold {
+  from { text-shadow: 0 0 8px #c6a14b, 0 0 14px #b48c3b; }
+  to   { text-shadow: 0 0 16px #f3d48a, 0 0 30px #c6a14b; }
+}
+
+@keyframes shineText {
+  from { color:#b48c3b; }
+  to { color:#f1c45b; text-shadow:0 0 12px rgba(255,215,130,.8); }
+}
+
+/* Altın tozu efekti */
+.gold-dust::before, .gold-dust::after {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:radial-gradient(circle, rgba(255,215,130,0.2) 1%, transparent 60%);
+  background-size:200px 200px;
+  animation:moveDust 12s linear infinite;
+  opacity:0.5;
+}
+.gold-dust::after {
+  animation-direction:reverse;
+  opacity:0.4;
+}
+@keyframes moveDust {
+  from { background-position:0 0; }
+  to { background-position:400px 400px; }
+}
+</style>
+
+<!-- 🕰️ GERİ SAYIM JAVASCRİPT -->
+<script>
+const countdownDate = new Date("June 1, 2026 00:00:00").getTime();
+const timer = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = countdownDate - now;
+
+  if (distance < 0) {
+    clearInterval(timer);
+    document.getElementById("countdown").innerHTML = "Rezervasyonlar Devam Ediyor 🎉";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+  document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+  document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+  document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+}, 1000);
+</script>
+
 
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
