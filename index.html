@@ -148,7 +148,7 @@ section{padding:70px 20px;text-align:center}
 h2{color:var(--gold);font-family:'Playfair Display',serif;font-size:32px;margin-bottom:14px}
 p.lead{max-width:760px;margin:auto;line-height:1.7}
 
-footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
+{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
 
 @media(max-width:900px){
 nav{display:none;position:absolute;right:12px;top:64px;background:rgba(255,248,239,.97);border:1px solid rgba(198,161,75,.25);border-radius:12px;flex-direction:column;min-width:210px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
@@ -187,6 +187,42 @@ nav.active{display:flex}
 <p class="lead">500 kişi kapasiteli salonumuzda unutulmaz anılar biriktirmeniz için her detay özenle düşünülmüştür. Modern mimari, şık dekorasyon ve profesyonel ekip ile hizmetinizdeyiz.</p>
 <a href="hizmetler.html" class="btn">Hizmetlerimizi Görün</a>
 </section>
+  <!-- ===== INSTAGRAM BÖLÜMÜ ===== -->
+<section class="instagram-feed">
+  <h2>Bizi Instagram’da Takip Edin</h2>
+  <div class="insta-grid">
+    <iframe src="https://www.instagram.com/ankalia.davetevi/embed" frameborder="0"></iframe>
+  </div>
+</section>
+
+<style>
+.instagram-feed {
+  background:#fff8ef;
+  padding:60px 20px;
+  text-align:center;
+  border-top:2px solid #c6a14b;
+}
+.instagram-feed h2 {
+  font-family:'Playfair Display',serif;
+  color:#c6a14b;
+  font-size:30px;
+  margin-bottom:30px;
+}
+.insta-grid iframe {
+  width:100%;
+  max-width:900px;
+  height:600px;
+  border:none;
+  border-radius:12px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.1);
+}
+@media (max-width:900px){
+  .insta-grid iframe {
+    height:520px;
+  }
+}
+</style>
+
 
 <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered bY USTABAŞI</footer>
 <script>
