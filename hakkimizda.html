@@ -5,7 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hakkımızda | Ankalia Davet Salonu</title>
   <style>
-    /* === Sabit Sosyal Medya Butonları === */
+    :root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+    /* Header */
+    #mainHeader{position:fixed;inset:0 0 auto 0;z-index:999;background:var(--head-bg);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,161,75,.25);transition:background .3s, box-shadow .3s}
+    #mainHeader.scrolled{background:rgba(255,255,255,.97);box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    .container{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;font-size:26px}
+    .logo img{height:28px}
+    nav{display:flex;gap:26px}
+    nav a{color:#333;text-decoration:none;font-weight:500;position:relative}
+    nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .25s}
+    nav a:hover{color:var(--gold)} 
+    nav a:hover::after{width:100%}
+    .menu-toggle{display:none;font-size:26px;color:var(--gold);cursor:pointer}
+
+    /* Hero */
+    .hero {
+      margin-top: 72px;
+      height: 650px; /* sabit yükseklik */
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+      background-color: #000;
+    }
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* tamamını göster */
+    }
+    .hero h1 {
+      position: absolute;
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    }
+
+    /* İçerik */
+    .about{width:min(1100px,92%);margin:60px auto;display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+    .about img{width:100%;max-width:520px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+    .about-text{flex:1;min-width:280px;line-height:1.8}
+    .about-text h2{color:var(--gold);font-family:'Playfair Display',serif;font-size:32px;margin:0 0 14px}
+    .about-text p{margin:0 0 12px}
+
+    /* Footer */
+    footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
+
+    /* Mobil */
+    @media (max-width:900px){
+      nav{display:none;position:absolute;right:12px;top:64px;background:rgba(255,248,239,.97);border:1px solid rgba(198,161,75,.25);border-radius:12px;flex-direction:column;min-width:210px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+      nav a{padding:12px 18px;display:block}
+      nav.active{display:flex;animation:fadeDown .25s ease}
+      @keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+      .menu-toggle{display:block}
+      .hero{height:420px}
+      .hero h1{font-size:28px}
+      .about{margin:40px auto;gap:24px;text-align:center}
+      .about img{max-width:90%}
+    }
+
+    /* Sosyal butonlar */
     .social-buttons {
       position: fixed;
       bottom: 70px;
@@ -37,199 +104,12 @@
       height: 28px;
       object-fit: contain;
     }
-    @media (max-width: 600px) {
-      .social-buttons {
-        bottom: 25px;
-        right: 15px;
-      }
-      .social-buttons a {
-        width: 48px;
-        height: 48px;
-      }
-      .social-buttons img {
-        width: 24px;
-        height: 24px;
-      }
-    }
-
-    /* === GENEL AYARLAR === */
-    :root {
-      --gold: #c6a14b;
-      --gold-2: #b48c3b;
-      --bg: #fef8f3;
-      --head-bg: rgba(255,248,239,.85);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: #333;
-      animation: fadeIn .6s ease;
-    }
-    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-
-    /* === HEADER === */
-    #mainHeader {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 999;
-      background: var(--head-bg);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(198,161,75,.25);
-      transition: background .3s, box-shadow .3s;
-    }
-    #mainHeader.scrolled {
-      background: rgba(255,255,255,.97);
-      box-shadow: 0 2px 10px rgba(0,0,0,.08);
-    }
-    .container {
-      width: min(1200px,92%);
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      color: var(--gold);
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-    }
-    .logo img { height: 28px; }
-    nav { display: flex; gap: 26px; }
-    nav a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      position: relative;
-    }
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      height: 2px;
-      width: 0;
-      background: var(--gold);
-      transition: width .25s;
-    }
-    nav a:hover { color: var(--gold); }
-    nav a:hover::after { width: 100%; }
-    .menu-toggle { display: none; font-size: 26px; color: var(--gold); cursor: pointer; }
-
-    /* === HERO (responsive fotoğraf sistemi) === */
-    .hero {
-      margin-top: 72px;
-      min-height: 48vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 1;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      margin: 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* === ABOUT === */
-    .about {
-      width: min(1100px,92%);
-      margin: 60px auto;
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .about img {
-      width: 100%;
-      max-width: 520px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    }
-    .about-text {
-      flex: 1;
-      min-width: 280px;
-      line-height: 1.8;
-    }
-    .about-text h2 {
-      color: var(--gold);
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      margin: 0 0 14px;
-    }
-    .about-text p { margin: 0 0 12px; }
-
-    /* === FOOTER === */
-    footer {
-      background: #fff8ef;
-      border-top: 2px solid var(--gold);
-      padding: 18px;
-      text-align: center;
-      color: #6e5e41;
-      font-size: 14px;
-    }
-
-    /* === MOBİL === */
-    @media (max-width:900px) {
-      nav {
-        display:none;
-        position:absolute;
-        right:12px;
-        top:64px;
-        background:rgba(255,248,239,.97);
-        border:1px solid rgba(198,161,75,.25);
-        border-radius:12px;
-        flex-direction:column;
-        min-width:210px;
-        box-shadow:0 8px 18px rgba(0,0,0,.08);
-      }
-      nav a { padding:12px 18px; display:block; }
-      nav.active {
-        display:flex;
-        animation:fadeDown .25s ease;
-      }
-      @keyframes fadeDown {
-        from {opacity:0; transform:translateY(-8px);}
-        to {opacity:1; transform:translateY(0);}
-      }
-      .menu-toggle { display:block; }
-      .hero h1 { font-size:28px; }
-      .about { margin:40px auto; gap:24px; text-align:center; }
-      .about img { max-width:90%; }
-    }
   </style>
 </head>
 <body>
   <header id="mainHeader">
     <div class="container">
-      <a href="index.html" class="logo"><img src="images/logo-dark.png" alt="" onerror="this.style.display='none'">Ankalia</a>
+      <a href="index.html" class="logo"><img src="images/logo-dark.png" alt="">Ankalia</a>
       <nav id="navbar">
         <a href="index.html">Ana Sayfa</a>
         <a href="hakkimizda.html">Hakkımızda</a>
@@ -242,13 +122,7 @@
   </header>
 
   <section class="hero">
-    <picture>
-      <!-- Mobil -->
-      <source srcset="images/about-hero-mobile.jpg" media="(max-width: 768px)">
-      <!-- Masaüstü -->
-      <source srcset="images/about-hero-desktop.jpg" media="(min-width: 769px)">
-      <img src="images/about-hero-desktop.jpg" alt="Ankalia Davet Salonu">
-    </picture>
+    <img src="images/about-hero-desktop.jpg" alt="Ankalia Davet Salonu">
     <h1>Hakkımızda</h1>
   </section>
 
@@ -265,20 +139,15 @@
   <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.</footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const header = document.getElementById('mainHeader');
-    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 30));
-    document.getElementById('mobileMenu').addEventListener('click', () => document.getElementById('navbar').classList.toggle('active'));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const header=document.getElementById('mainHeader');
+    window.addEventListener('scroll',()=> header.classList.toggle('scrolled', window.scrollY>30));
+    document.getElementById('mobileMenu').addEventListener('click',()=>document.getElementById('navbar').classList.toggle('active'));
   </script>
 
-  <!-- Sabit WhatsApp ve Instagram butonları -->
   <div class="social-buttons">
-    <a href="https://wa.me/905423205536" class="whatsapp" target="_blank" title="WhatsApp">
-      <img src="images/whatsapp.png" alt="WhatsApp">
-    </a>
-    <a href="https://www.instagram.com/ankalia.davetevi" class="instagram" target="_blank" title="Instagram">
-      <img src="images/instagram.png" alt="Instagram">
-    </a>
+    <a href="https://wa.me/905423205536" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp"></a>
+    <a href="https://www.instagram.com/ankalia.davetevi" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
   </div>
 </body>
 </html>
