@@ -5,144 +5,175 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menüler | Ankalia Davet Salonu</title>
   <style>
-/* === Sabit Sosyal Medya Butonları === */
-.social-buttons {
-  position: fixed;
-  bottom: 70px;             /* footer'dan yukarıda */
-  right: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  z-index: 9999;
-}
-
-.social-buttons a {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #fff8ef;       /* açık bej */
-  border: 2px solid #c6a14b; /* altın çerçeve */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.social-buttons a:hover {
-  transform: translateY(-3px) scale(1.08);
-  background: #c6a14b;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-.social-buttons img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-/* Mobilde biraz küçült */
-@media (max-width: 600px) {
-  .social-buttons {
-    bottom: 25px;
-    right: 15px;
-  }
-  .social-buttons a {
-    width: 48px;
-    height: 48px;
-  }
-  .social-buttons img {
-    width: 24px;
-    height: 24px;
-  }
-}
-
- /* === İLETİŞİM SAYFASI - Hero Görsel Ayarı === */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-}
-
-/* Blur arka plan */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: inherit;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(25px) brightness(60%);
-  transform: scale(1.1);
-  z-index: 0;
-}
-
-/* Ortadaki net dikey görsel */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: inherit;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain; /* net görüntü */
-  z-index: 1;
-}
-
-/* Yazılar üstte kalacak */
-.hero h1, .hero p {
-  position: relative;
-  z-index: 2;
-}
-
-/* --- Mobilde blur’u azalt, tam ekran yap --- */
-@media (max-width: 1024px) {
-  .hero::before {
-    filter: blur(15px) brightness(65%);
-  }
-  .hero::after {
-    background-size: cover; /* mobilde tam kapla */
-  }
-}
-
-    :root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
-    *{box-sizing:border-box} body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
+    :root{
+      --gold:#c6a14b;
+      --gold-2:#b48c3b;
+      --bg:#fef8f3;
+      --head-bg:rgba(255,248,239,.85);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:var(--bg);
+      color:#333;
+      animation:fadeIn .6s ease;
+    }
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-    #mainHeader{position:fixed;inset:0 0 auto 0;z-index:999;background:var(--head-bg);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,161,75,.25);transition:background .3s, box-shadow .3s}
-    #mainHeader.scrolled{background:rgba(255,255,255,.97);box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    .container{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;color:var(--gold);font-family:'Playfair Display',serif;font-size:26px}
+    /* HEADER */
+    #mainHeader{
+      position:fixed;
+      inset:0 0 auto 0;
+      z-index:999;
+      background:var(--head-bg);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(198,161,75,.25);
+      transition:background .3s, box-shadow .3s;
+    }
+    #mainHeader.scrolled{
+      background:rgba(255,255,255,.97);
+      box-shadow:0 2px 10px rgba(0,0,0,.08);
+    }
+    .container{
+      width:min(1200px,92%);
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      font-weight:700;
+      color:var(--gold);
+      font-family:'Playfair Display',serif;
+      font-size:26px;
+    }
     .logo img{height:28px}
     nav{display:flex;gap:26px}
     nav a{color:#333;text-decoration:none;font-weight:500;position:relative}
-    nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:width .25s}
-    nav a:hover{color:var(--gold)} nav a:hover::after{width:100%}
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      height:2px;
+      width:0;
+      background:var(--gold);
+      transition:width .25s;
+    }
+    nav a:hover{color:var(--gold)}
+    nav a:hover::after{width:100%}
     .menu-toggle{display:none;font-size:26px;color:var(--gold);cursor:pointer}
 
-    .hero{margin-top:72px;min-height:44vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/headerts-bg.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px}
-    .hero h1{font-family:'Playfair Display',serif;font-size:40px;margin:0}
+    /* HERO */
+    .hero{
+      margin-top:72px;
+      min-height:44vh;
+      background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/headerts-bg.jpg') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      padding:0 20px;
+    }
+    .hero h1{
+      font-family:'Playfair Display',serif;
+      font-size:40px;
+      margin:0;
+    }
 
+    /* MENÜ KUTULARI */
     .wrap{width:min(1100px,92%);margin:50px auto}
-    .menu-group{background:#fff;border:1px solid rgba(198,161,75,.2);border-radius:14px;padding:24px;margin-bottom:18px;box-shadow:0 6px 14px rgba(0,0,0,.06)}
-    .menu-group h3{margin:0 0 8px;color:var(--gold);font-family:'Playfair Display',serif}
+    .menu-group{
+      background:#fff;
+      border:1px solid rgba(198,161,75,.2);
+      border-radius:14px;
+      padding:28px 24px;
+      margin-bottom:26px;
+      box-shadow:0 6px 14px rgba(0,0,0,.06);
+      transition:transform .3s, box-shadow .3s;
+      position:relative;
+      overflow:hidden;
+    }
+    .menu-group:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 18px rgba(198,161,75,.25);
+    }
+
+    .menu-group h3{
+      margin:0 0 12px;
+      color:var(--gold);
+      font-family:'Playfair Display',serif;
+      font-size:24px;
+      position:relative;
+      display:inline-block;
+      padding-bottom:6px;
+    }
+
+    /* ALTIN ÇİZGİ (DIVIDER) */
+    .menu-group h3::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:60px;
+      height:3px;
+      background:linear-gradient(90deg,var(--gold),#f5e3b3,var(--gold));
+      border-radius:3px;
+      box-shadow:0 0 8px rgba(198,161,75,.5);
+      transition:width .4s ease, box-shadow .4s ease;
+    }
+    .menu-group:hover h3::after{
+      width:100px;
+      box-shadow:0 0 12px rgba(198,161,75,.8);
+    }
+
+    .menu-group p{
+      margin:6px 0 10px;
+      line-height:1.8;
+      color:#444;
+    }
     .menu-group ul{margin:8px 0 0 18px;line-height:1.8}
 
-    footer{background:#fff8ef;border-top:2px solid var(--gold);padding:18px;text-align:center;color:#6e5e41;font-size:14px}
+    footer{
+      background:#fff8ef;
+      border-top:2px solid var(--gold);
+      padding:18px;
+      text-align:center;
+      color:#6e5e41;
+      font-size:14px;
+    }
 
     @media (max-width:900px){
-      nav{display:none;position:absolute;right:12px;top:64px;background:rgba(255,248,239,.97);border:1px solid rgba(198,161,75,.25);border-radius:12px;flex-direction:column;min-width:210px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
+      nav{
+        display:none;
+        position:absolute;
+        right:12px;
+        top:64px;
+        background:rgba(255,248,239,.97);
+        border:1px solid rgba(198,161,75,.25);
+        border-radius:12px;
+        flex-direction:column;
+        min-width:210px;
+        box-shadow:0 8px 18px rgba(0,0,0,.08);
+      }
       nav a{padding:12px 18px;display:block}
-      nav.active{display:flex;animation:fadeDown .25s ease}@keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+      nav.active{display:flex;animation:fadeDown .25s ease}
+      @keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
       .menu-toggle{display:block}
     }
+
+    /* SABİT BUTONLAR */
+    .social-buttons{position:fixed;bottom:70px;right:25px;display:flex;flex-direction:column;gap:14px;z-index:9999}
+    .social-buttons a{width:56px;height:56px;border-radius:50%;background:#fff8ef;border:2px solid #c6a14b;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.25);transition:transform .25s ease,background .3s ease,box-shadow .3s ease}
+    .social-buttons a:hover{transform:translateY(-3px) scale(1.08);background:#c6a14b;box-shadow:0 6px 16px rgba(0,0,0,0.3)}
+    .social-buttons img{width:28px;height:28px;object-fit:contain}
   </style>
 </head>
 <body>
@@ -163,50 +194,95 @@
   <section class="hero"><h1>Menüler</h1></section>
 
   <div class="wrap">
+
     <div class="menu-group">
-      <h3>Standart Davet Menüsü</h3>
+      <h3>💫 Salon Kiralama Seçeneği</h3>
+      <p>Etkinliğinizi tamamen kendi konseptinizle düzenlemek istiyorsanız, <strong>Ankalia Davet Salonu’nu</strong> sadece alan olarak kiralayabilirsiniz.  
+      Salonumuzun ses, ışık ve düzen altyapısı tarafımızca hazır bulundurulur; dilerseniz kendi organizasyon ekibinizle, dilerseniz bizim profesyonel desteğimizle çalışabilirsiniz.</p>
       <ul>
-        <li>Karşılama içecekleri</li>
-        <li>Başlangıç tabağı (zeytinyağlılar & peynir çeşitleri)</li>
-        <li>Ana yemek (kırmızı/ beyaz et seçenekleri)</li>
-        <li>Mevsim salata</li>
-        <li>İçecekler</li>
-        <li>Tatlı veya meyve</li>
+        <li>Salonun tam kapasite kullanımı (500 kişi)</li>
+        <li>Ses & ışık sistemi hazır kurulum</li>
+        <li>Organizasyon koordinasyon desteği opsiyonel</li>
       </ul>
     </div>
 
     <div class="menu-group">
-      <h3>Premium Davet Menüsü</h3>
+      <h3>🍽️ Standart Davet Menüsü</h3>
+      <p>Her davete yakışan, lezzeti ve zarafeti bir arada sunan klasik menü. Profesyonel garson ekibiyle eksiksiz servis edilir.</p>
       <ul>
-        <li>Karşılama kokteylleri</li>
-        <li>Sıcak/soğuk kanepeler & ara sıcak</li>
-        <li>Ana yemek (özel soslu seçenekler)</li>
-        <li>İçecekler (özel sunum)</li>
-        <li>Görsel sunumlu tatlı</li>
+        <li>Kuruyemiş & cips ikramı</li>
+        <li>Dilim yaş pasta servisi</li>
+        <li>Soft içecekler & limitsiz çay servisi</li>
+        <li>Mekan süsleme ve masa düzeni dahil</li>
+        <li>Profesyonel servis ve organizasyon desteği</li>
       </ul>
     </div>
 
     <div class="menu-group">
-      <h3>Kahvaltı Organizasyonu</h3>
+      <h3>🥂 Premium Davet Menüsü</h3>
+      <p>Şıklığın ve lezzetin bir arada olduğu özel menü. Girişten tatlıya kadar her detay özenle hazırlanır.</p>
+      <ul>
+        <li>Hoş geldiniz kokteyli</li>
+        <li>Günün çorbası (özel sunum)</li>
+        <li>Ana yemek (beyaz veya kırmızı et seçeneği)</li>
+        <li>Yanında pilav, garnitür & mevsim salata</li>
+        <li>Tatlı servisi (trileçe veya sütlü tatlı)</li>
+        <li>Soft içecekler & sınırsız çay servisi</li>
+        <li>Profesyonel garson ve organizasyon ekibi</li>
+      </ul>
+    </div>
+
+    <div class="menu-group">
+      <h3>☕ Kahvaltı Organizasyonu</h3>
+      <p>Sabah davetleri için huzurlu bir ortamda taze, zengin ve sıcak kahvaltı deneyimi.</p>
       <ul>
         <li>Serpme kahvaltı veya açık büfe seçenekleri</li>
-        <li>Sıcak içecekler (çay/kahve)</li>
-        <li>Taze sıcaklar (menemen, omlet vb.)</li>
-        <li>Tatlı atıştırmalıklar</li>
+        <li>Sıcak servisler (menemen, sahanda yumurta, omlet)</li>
+        <li>Çay, kahve ve taze meyve suları</li>
+        <li>Tatlı & tuzlu atıştırmalıklar</li>
+        <li>Servis personeli ve masa düzeni dahil</li>
       </ul>
     </div>
 
     <div class="menu-group">
-      <h3>After Party Atıştırmalıkları</h3>
+      <h3>🎧 After Party İkramları</h3>
+      <p>Eğlencenin enerjisini sabaha kadar koruyun. Gece boyu atıştırmalık ve içecek servisiyle ritminiz hiç düşmesin.</p>
       <ul>
-        <li>Finger food & mini ikramlar</li>
-        <li>Soft içecekler</li>
-        <li>Gece sonu sıcak servisi</li>
+        <li>Mini atıştırmalıklar & finger food servisi</li>
+        <li>Soft içecek & enerji içeceği opsiyonu</li>
+        <li>Gece sonu sıcak çorba ikramı</li>
+        <li>DJ performans alanı & ışık desteği</li>
+        <li>Organizasyon ekibi refakati</li>
       </ul>
     </div>
+
+    <div class="menu-group">
+      <h3>🎂 Doğum Günü & Baby Shower Menüsü</h3>
+      <p>Sevdiklerinizle özel günlerinizi kutlamak için renkli, lezzetli ve keyifli bir sunum.</p>
+      <ul>
+        <li>Temalı masa & balon dekorasyonu</li>
+        <li>Dilim yaş pasta veya cupcake servisi</li>
+        <li>Kuruyemiş & cips ikramı</li>
+        <li>Soft içecek & çay servisi</li>
+        <li>Profesyonel servis personeli</li>
+      </ul>
+    </div>
+
+    <div class="menu-group">
+      <h3>🏢 Kurumsal Toplantı & Lansman Menüleri</h3>
+      <p>Profesyonel iş ortamına uygun, sade ve şık menülerle toplantılarınıza prestij katıyoruz.</p>
+      <ul>
+        <li>Karşılama kahvesi & kurabiye servisi</li>
+        <li>Seçmeli ara öğün (atıştırmalık tabak)</li>
+        <li>Soft içecek & su servisi</li>
+        <li>Toplantı süresince servis personeli refakati</li>
+        <li>Projeksiyon & ses sistemi desteği</li>
+      </ul>
+    </div>
+
   </div>
 
-  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered bY USTABAŞI</footer>
+  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered by USTABAŞI</footer>
 
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
@@ -214,16 +290,14 @@
     window.addEventListener('scroll',()=> header.classList.toggle('scrolled', window.scrollY>30));
     document.getElementById('mobileMenu').addEventListener('click',()=>document.getElementById('navbar').classList.toggle('active'));
   </script>
-<!-- Sabit WhatsApp ve Instagram butonları -->
-<div class="social-buttons">
-  <a href="https://wa.me/905423205536" class="whatsapp" target="_blank" title="WhatsApp">
-    <img src="images/whatsapp.png" alt="WhatsApp">
-  </a>
-  <a href="https://www.instagram.com/ankalia.davetevi" class="instagram" target="_blank" title="Instagram">
-    <img src="images/instagram.png" alt="Instagram">
-  </a>
-</div>
 
-
+  <div class="social-buttons">
+    <a href="https://wa.me/905423205536" class="whatsapp" target="_blank" title="WhatsApp">
+      <img src="images/whatsapp.png" alt="WhatsApp">
+    </a>
+    <a href="https://www.instagram.com/ankalia.davetevi" class="instagram" target="_blank" title="Instagram">
+      <img src="images/instagram.png" alt="Instagram">
+    </a>
+  </div>
 </body>
 </html>
