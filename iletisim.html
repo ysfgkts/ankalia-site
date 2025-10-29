@@ -184,15 +184,23 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d191.52821196121266!2d32.79711323625502!3d39.81929613545937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345d9118daca7%3A0x96c9a6dec2eef880!2sAnkalia%20Davet%20ve%20Balo%20Salonu!5e0!3m2!1str!2str!4v1761685494976!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <form onsubmit="event.preventDefault(); alert('Teşekkürler! Mesajınız alındı. (E-posta entegrasyonunu istersen kurarız)');">
-      <label for="isim">Ad Soyad</label>
-      <input type="text" id="isim" name="isim" required>
-      <label for="email">E-posta</label>
-      <input type="email" id="email" name="email" required>
-      <label for="mesaj">Mesajınız</label>
-      <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
-      <button type="submit">Gönder</button>
-    </form>
+ <form action="https://formsubmit.co/info@ankaliadavetevi.com" method="POST">
+  <label for="isim">Ad Soyad</label>
+  <input type="text" id="isim" name="isim" required>
+
+  <label for="email">E-posta</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="mesaj">Mesajınız</label>
+  <textarea id="mesaj" name="mesaj" rows="5" required></textarea>
+
+  <!-- Gizli ayarlar -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://ankaliadavetevi.com/tesekkurler.html">
+
+  <button type="submit">Gönder</button>
+</form>
+
   </section>
 
   <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır.</footer>
