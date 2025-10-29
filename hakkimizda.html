@@ -86,7 +86,7 @@
       text-align:center;
       color:#fff;
       overflow:hidden;
-      background-color:#fef8f3; /* siyah yerine bej */
+      background-color:#fef8f3;
     }
     .hero picture, .hero img {
       width:100%;
@@ -124,7 +124,14 @@
     .about-text {
       flex:1;
       min-width:280px;
-      line-height:1.8;
+      line-height:1.9;
+      opacity:0;
+      transform:translateY(20px);
+      transition:all 1s ease;
+    }
+    .about-text.visible {
+      opacity:1;
+      transform:translateY(0);
     }
     .about-text h2 {
       color:var(--gold);
@@ -132,7 +139,10 @@
       font-size:32px;
       margin:0 0 14px;
     }
-    .about-text p { margin:0 0 12px; }
+    .about-text p {
+      margin:0 0 14px;
+      font-size:17px;
+    }
 
     /* === FOOTER === */
     footer {
@@ -219,9 +229,7 @@
   <!-- HERO -->
   <section class="hero">
     <picture>
-      <!-- Mobil (dikey) -->
       <source media="(max-width: 900px)" srcset="images/about-hero-mobile.jpg">
-      <!-- Masaüstü (yatay) -->
       <img src="images/about-hero-desktop.jpg" alt="Ankalia Davet Salonu">
     </picture>
     <h1>Hakkımızda</h1>
@@ -230,21 +238,38 @@
   <!-- ABOUT -->
   <section class="about">
     <img src="images/ankalia-hall.jpg" alt="Ankalia Davet Salonu">
-    <div class="about-text">
+    <div class="about-text" id="aboutText">
       <h2>Her Anınız Özel, Her Detay Bizim İşimiz</h2>
-      <p>Ankalia Davet Salonu olarak, her daveti sadece bir etkinlik değil; ömür boyu hatırlanacak bir anı olarak görüyoruz. 500 kişi kapasiteli salonumuz, modern ışık ve ses sistemleriyle kusursuz bir deneyim sunar.</p>
-      <p>Düğün, nişan, kına, mezuniyet, kahvaltı organizasyonları ve after party konseptlerinde; estetik, konfor ve kaliteyi bir arada yaşatıyoruz.</p>
-      <p>Profesyonel ekibimizle konsept tasarımından menü seçimine kadar tüm süreci sizinle birlikte planlıyoruz.</p>
+      <p><strong>📍 Ankara’nın kalbinde yer alan <span style="color:#c6a14b;">Ankalia Davet Salonu</span></strong>, modern mimarisi, zarif atmosferi ve kusursuz hizmet anlayışıyla özel anlarınızı unutulmaz kılmak için tasarlandı.</p>
+      <p>Burada her masa düzeni, her ışık, her müzik notası; size ve davetinizin ruhuna özel olarak hazırlanır.</p>
+      <p>💎 500 kişilik geniş salonumuz, ister görkemli bir nişan, ister samimi bir kahvaltı, isterse unutulmaz bir after party olsun, her organizasyona aynı özen ve profesyonellikle ev sahipliği yapar.</p>
+      <p><strong>🍽️ Yemek kalitemiz</strong> Ankara’nın en seçkin damaklarının dahi takdirini kazanmıştır. Her tabak, ustalarımızın elinden çıkan özenli bir lezzet deneyimidir.</p>
+      <p>🌿 Bizim için her davet; <em>samimiyet, huzur ve aile sıcaklığının</em> birleştiği bir anıdır. Organizasyonun her adımında yanınızda olur, süreci birlikte yönetiriz.</p>
+      <p>✨ Çünkü biz inanıyoruz ki; zarafet sadece dekorasyonda değil, ilgide ve detayda gizlidir. <br><strong>Ankalia Davet Salonu</strong> — her anınız ölümsüz olsun diye...</p>
     </div>
   </section>
 
-  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered bY USTABAŞI</footer>
+  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered by USTABAŞI</footer>
 
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
     const header=document.getElementById('mainHeader');
     window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>30));
     document.getElementById('mobileMenu').addEventListener('click',()=>document.getElementById('navbar').classList.toggle('active'));
+
+    // 🔥 Fade-in animasyonu
+    document.addEventListener("DOMContentLoaded", function() {
+      const about = document.getElementById("aboutText");
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            about.classList.add("visible");
+            obs.unobserve(about);
+          }
+        });
+      });
+      observer.observe(about);
+    });
   </script>
 
   <!-- SABİT BUTONLAR -->
