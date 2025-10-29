@@ -5,119 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hizmetler | Ankalia Davet Salonu</title>
   <style>
-    /* === Sabit Sosyal Medya Butonları === */
-.social-buttons {
-  position: fixed;
-  bottom: 70px;             /* footer'dan yukarıda */
-  right: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  z-index: 9999;
-}
-
-.social-buttons a {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #fff8ef;       /* açık bej */
-  border: 2px solid #c6a14b; /* altın çerçeve */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.25s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.social-buttons a:hover {
-  transform: translateY(-3px) scale(1.08);
-  background: #c6a14b;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
-.social-buttons img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-
-/* Mobilde biraz küçült */
-@media (max-width: 600px) {
-  .social-buttons {
-    bottom: 25px;
-    right: 15px;
-  }
-  .social-buttons a {
-    width: 48px;
-    height: 48px;
-  }
-  .social-buttons img {
-    width: 24px;
-    height: 24px;
-  }
-}
-
-  /* === İLETİŞİM SAYFASI - Hero Görsel Ayarı === */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-}
-
-/* Blur arka plan */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: inherit;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(25px) brightness(60%);
-  transform: scale(1.1);
-  z-index: 0;
-}
-
-/* Ortadaki net dikey görsel */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: inherit;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain; /* net görüntü */
-  z-index: 1;
-}
-
-/* Yazılar üstte kalacak */
-.hero h1, .hero p {
-  position: relative;
-  z-index: 2;
-}
-
-/* --- Mobilde blur’u azalt, tam ekran yap --- */
-@media (max-width: 1024px) {
-  .hero::before {
-    filter: blur(15px) brightness(65%);
-  }
-  .hero::after {
-    background-size: cover; /* mobilde tam kapla */
-  }
-}
-
-
     :root{--gold:#c6a14b;--gold-2:#b48c3b;--bg:#fef8f3;--head-bg:rgba(255,248,239,.85)}
-    *{box-sizing:border-box} body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#333;animation:fadeIn .6s ease}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-    /* Header */
+    /* HEADER */
     #mainHeader{position:fixed;inset:0 0 auto 0;z-index:999;background:var(--head-bg);backdrop-filter:blur(8px);border-bottom:1px solid rgba(198,161,75,.25);transition:background .3s, box-shadow .3s}
     #mainHeader.scrolled{background:rgba(255,255,255,.97);box-shadow:0 2px 10px rgba(0,0,0,.08)}
     .container{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 0}
@@ -129,14 +22,15 @@
     nav a:hover{color:var(--gold)} nav a:hover::after{width:100%}
     .menu-toggle{display:none;font-size:26px;color:var(--gold);cursor:pointer}
 
-    /* Hero */
-    .hero{margin-top:72px;min-height:44vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/headert-bg.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px}
+    /* HERO */
+    .hero{margin-top:72px;min-height:44vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('images/headert-bg.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px}
     .hero h1{font-family:'Playfair Display',serif;font-size:40px;margin:0}
 
-    /* Grid */
+    /* GRID */
     .wrap{width:min(1200px,92%);margin:50px auto}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .card{background:#fff;border:1px solid rgba(198,161,75,.2);border-radius:14px;padding:20px;text-align:left;box-shadow:0 6px 14px rgba(0,0,0,.06)}
+    .card{background:#fff;border:1px solid rgba(198,161,75,.2);border-radius:14px;padding:20px;text-align:left;box-shadow:0 6px 14px rgba(0,0,0,.06);transition:transform .3s}
+    .card:hover{transform:translateY(-5px)}
     .card h3{margin:0 0 10px;color:var(--gold);font-family:'Playfair Display',serif}
     .card p{margin:0 0 10px;line-height:1.7}
     .badge{display:inline-block;background:var(--gold);color:#fff;padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:10px}
@@ -146,10 +40,17 @@
     @media (max-width:900px){
       nav{display:none;position:absolute;right:12px;top:64px;background:rgba(255,248,239,.97);border:1px solid rgba(198,161,75,.25);border-radius:12px;flex-direction:column;min-width:210px;box-shadow:0 8px 18px rgba(0,0,0,.08)}
       nav a{padding:12px 18px;display:block}
-      nav.active{display:flex;animation:fadeDown .25s ease}@keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+      nav.active{display:flex;animation:fadeDown .25s ease}
+      @keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
       .menu-toggle{display:block}
       .grid{grid-template-columns:1fr}
     }
+
+    /* SOSYAL BUTONLAR */
+    .social-buttons{position:fixed;bottom:70px;right:25px;display:flex;flex-direction:column;gap:14px;z-index:9999}
+    .social-buttons a{width:56px;height:56px;border-radius:50%;background:#fff8ef;border:2px solid #c6a14b;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.25);transition:transform .25s ease,background .3s ease,box-shadow .3s ease}
+    .social-buttons a:hover{transform:translateY(-3px) scale(1.08);background:#c6a14b;box-shadow:0 6px 16px rgba(0,0,0,0.3)}
+    .social-buttons img{width:28px;height:28px;object-fit:contain}
   </style>
 </head>
 <body>
@@ -172,39 +73,68 @@
   <div class="wrap">
     <div class="grid">
       <div class="card">
-        <span class="badge">Düğün & Nişan</span>
-        <h3>Şık Konsept Tasarımları</h3>
-        <p>Masa-sandalye giydirme, gelin yolu, nikah kürsüsü, ışık & ses sistemleri ve profesyonel sahne kurulumları.</p>
+        <span class="badge">Düğün</span>
+        <h3>Hayatınızın En Özel “Evet”i İçin</h3>
+        <p>Zarif dekorasyon, profesyonel ışık sistemi ve özenle seçilmiş menülerle düğününüzü unutulmaz bir masala dönüştürüyoruz.</p>
       </div>
+
       <div class="card">
-        <span class="badge">Kına & After Party</span>
-        <h3>Enerjik & Unutulmaz</h3>
-        <p>DJ performansı, ışık şovları, dans pistinde sis ve konfeti efektleri. Gece boyu eğlence.</p>
+        <span class="badge">Nişan</span>
+        <h3>Şık ve Zarif Başlangıç</h3>
+        <p>Modern konseptler, zarif masa süslemeleri ve romantik atmosferle nişan töreninize özel dokunuşlar katıyoruz.</p>
       </div>
+
       <div class="card">
-        <span class="badge">Kahvaltı & Kurumsal</span>
-        <h3>Şık Sunumlar</h3>
-        <p>Geniş açık büfe veya servis menüleri, toplantı düzeni ve projeksiyon imkânı.</p>
+        <span class="badge">Söz</span>
+        <h3>İlk Adımın En Güzel Hali</h3>
+        <p>Aile sıcaklığında, sade ama etkileyici bir söz organizasyonu; sevgi dolu anları zarafetle harmanlıyoruz.</p>
       </div>
+
       <div class="card">
-        <span class="badge">Organizasyon</span>
-        <h3>Profesyonel Ekip</h3>
-        <p>Planlama, zaman çizelgesi ve sahne akışı yönetimi; fotoğraf-video çözüm ortaklarımızla koordinasyon.</p>
+        <span class="badge">Kına Gecesi</span>
+        <h3>Geleneksel Dokunuş, Modern Sunum</h3>
+        <p>Kına tahtı, bindallı alanı, özel ışık şovları ve kına ekibimizle kültürümüzü modern yorumlarla buluşturuyoruz.</p>
       </div>
+
       <div class="card">
-        <span class="badge">Kapasite</span>
-        <h3>500 Kişi</h3>
-        <p>Ferahlık sağlayan tavan yüksekliği, kolay ulaşım ve geniş otopark alanı.</p>
+        <span class="badge">After Party</span>
+        <h3>Gece Yeni Başlıyor</h3>
+        <p>DJ performansları, özel aydınlatma, sis ve konfeti efektleriyle sabaha kadar süren bir eğlence atmosferi.</p>
       </div>
+
       <div class="card">
-        <span class="badge">Menüler</span>
-        <h3>Lezzet & Kalite</h3>
-        <p>Fiyatlandırma sayfası yoktur; menüler ve içerikler için “Menüler” sayfasını inceleyebilirsiniz.</p>
+        <span class="badge">Kahvaltı Davetleri</span>
+        <h3>Güne Lezzetle Başlayın</h3>
+        <p>Açık büfe veya servis konseptli kahvaltı organizasyonlarıyla güne keyifli bir başlangıç yapın.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Kurumsal Toplantılar</span>
+        <h3>Profesyonel Çözüm Ortağınız</h3>
+        <p>Toplantı, lansman, seminer ve ödül törenleri için teknik donanımlı salon ve kusursuz servis hizmeti.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Mezuniyet & Balo</span>
+        <h3>Yeni Başlangıçlara Özel</h3>
+        <p>Mezuniyet kutlamaları ve balolar için ışıl ışıl bir atmosfer, profesyonel sahne ve keyifli anlar.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Aile Yemekleri & Yıl Dönümleri</span>
+        <h3>Sıcak, Samimi ve Keyifli</h3>
+        <p>Aile toplantıları, doğum günleri ve evlilik yıl dönümleri için huzurlu ve sıcak bir ortam sunuyoruz.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Tanıtım & Lansman</span>
+        <h3>Markanızı Işıltıyla Sunun</h3>
+        <p>Yeni ürün veya hizmet tanıtımlarınız için profesyonel ses, ışık ve sunum desteğiyle etkileyici lansmanlar düzenliyoruz.</p>
       </div>
     </div>
   </div>
 
-  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered bY USTABAŞI</footer>
+  <footer>© <span id="year"></span> Ankalia Davet Salonu — Tüm hakları saklıdır. Powered by USTABAŞI</footer>
 
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
@@ -212,16 +142,14 @@
     window.addEventListener('scroll',()=> header.classList.toggle('scrolled', window.scrollY>30));
     document.getElementById('mobileMenu').addEventListener('click',()=>document.getElementById('navbar').classList.toggle('active'));
   </script>
-<!-- Sabit WhatsApp ve Instagram butonları -->
-<div class="social-buttons">
-  <a href="https://wa.me/905423205536" class="whatsapp" target="_blank" title="WhatsApp">
-    <img src="images/whatsapp.png" alt="WhatsApp">
-  </a>
-  <a href="https://www.instagram.com/ankalia.davetevi" class="instagram" target="_blank" title="Instagram">
-    <img src="images/instagram.png" alt="Instagram">
-  </a>
-</div>
 
-
+  <div class="social-buttons">
+    <a href="https://wa.me/905423205536" class="whatsapp" target="_blank" title="WhatsApp">
+      <img src="images/whatsapp.png" alt="WhatsApp">
+    </a>
+    <a href="https://www.instagram.com/ankalia.davetevi" class="instagram" target="_blank" title="Instagram">
+      <img src="images/instagram.png" alt="Instagram">
+    </a>
+  </div>
 </body>
 </html>
