@@ -184,17 +184,54 @@ nav.active{display:flex}
 
 <section>
 <h2>Hoş Geldiniz</h2>
-<p class="lead">Ankara’nın kalbinde, zarafetin ve ışıltının buluştuğu yeni adres: Ankalia Davet Salonu.
+<p class="lead"><style>
+/* 🔥 Hoş Geldiniz kısmı için tek seferlik fade-in animasyonu */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-500 kişilik geniş ve modern salonumuzda, hayatınızın en özel anlarını kusursuz bir atmosferde yaşamanız için her ayrıntı titizlikle tasarlandı.
+.welcome-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
-Işıkların dans ettiği şık dekorasyonumuz, son teknoloji ses ve ışık sistemlerimiz, profesyonel servis ekibimiz ve özel menü seçeneklerimizle; düğün, nişan, kına, mezuniyet ve tüm özel organizasyonlarınızı unutulmaz kılıyoruz.
+.welcome-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 1.2s ease forwards;
+}
 
-Ankalia’da her an, zarafetle bütünleşen bir mutluluk hikayesine dönüşür.
-Sevdiklerinizle birlikte gülümsemelerin, dansların ve ömürlük hatıraların paylaşıldığı bir geceye hazır olun.
+.welcome-section h2 {
+  color: #c6a14b;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
 
-Hayalinizdeki daveti gerçeğe dönüştürmek için sizleri Ankalia Davet Salonu’na davet ediyoruz.
-Çünkü biz, her anınızı ölümsüz kılmak için buradayız. 💫</p>
+.welcome-section p {
+  line-height: 1.9;
+  font-size: 17px;
+  max-width: 850px;
+  margin: auto;
+  color: #333;
+}
+</style>
+
+<section class="welcome-section" id="welcome">
+  <h2>Hoş Geldiniz ✨</h2>
+
+  <p>
+    <strong>📍 Ankara’nın kalbinde, zarafetin ve ışıltının buluştuğu yeni adres: <span style="color:#c6a14b;">Ankalia Davet Salonu</span>.</strong>
+    <br><br>
+</p>
 <a href="hizmetler.html" class="btn">Hizmetlerimizi Görün</a>
 </section>
   <!-- ===== INSTAGRAM BÖLÜMÜ ===== -->
